@@ -1,0 +1,13 @@
+common: &common
+  smtp_settings:
+    :host: 'localhost'
+    :port: 1025
+
+production:
+  <<: *common
+
+development:
+  <<: *common
+
+test:
+  <<: *common
