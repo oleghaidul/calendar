@@ -1,0 +1,5 @@
+= simple_nested_form_for @calendar, html: {class: 'form-horizontal'}, as: :calendar, url: calendar_path(@calendar) do |f|
+  = f.input :name
+  = f.input :active
+
+  = f.submit 'Update Calendar', class: 'btn btn-success'

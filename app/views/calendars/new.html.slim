@@ -1,0 +1,11 @@
+= simple_form_for @calendar, html: {class: 'form-horizontal'}, as: :calendar, url: calendars_path do |f|
+  = f.input :name
+  = f.input :active
+
+  = f.submit 'Create Calendar', class: 'btn btn-success'
+
+
+
+a href="#" class="popover-link btn btn-large btn-danger" data-toggle="popover" title="A Title" data-content="#{render 'popover'}" Click to toggle popover
+
+#calendar

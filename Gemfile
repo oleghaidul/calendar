@@ -9,6 +9,8 @@ gem 'pg'
 
 gem "cancan"
 gem 'devise'
+gem 'enumerize'
+gem 'nested_form'
 gem 'responders'
 gem 'simple_form'
 gem "simple-navigation"

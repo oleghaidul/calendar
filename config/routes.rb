@@ -1,6 +1,9 @@
 Calendar::Application.routes.draw do
   devise_for :users
 
+  resources :calendars
+  match '/:id' => 'calendars#show', as: :public_calendar
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

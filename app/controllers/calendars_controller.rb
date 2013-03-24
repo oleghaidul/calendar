@@ -1,0 +1,23 @@
+class CalendarsController < ApplicationController
+  load_and_authorize_resource :user_calendar, instance_name: :calendar, parent: false
+  def index
+  end
+
+  def new
+    @periods = @calendar.periods.build
+  end
+
+  def show
+  end
+
+  def create
+    @calendar.attributes = params[:calendar]
+    @calendar.save
+    respond_with @calendar, location: edit_calendar_url(@calendar)
+  end
+
+  def update
+    @calendar.update_attributes(params[:calendar])
+    respond_with @calendar, location: edit_calendar_url(@calendar)
+  end
+end
