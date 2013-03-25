@@ -16,7 +16,17 @@ $ ->
   $('.popover-link').popover
     html: true
 
-  $('.day').popover
+  $('.day').popover(
     html: true
-    title: "asdasd"
-    content: "ddd"
+    title: "form"
+    trigger: "manual"
+  ).click ->
+    $('.popover').hide()
+    $(this).popover "show"
+    $.ajax(
+      url: "/periods/new"
+      cache: false
+      )
+
+  $(document).click ->
+    $('.popover').hide()

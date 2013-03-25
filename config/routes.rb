@@ -3,6 +3,7 @@ Calendar::Application.routes.draw do
 
   resources :calendars
   match '/:id' => 'calendars#show', as: :public_calendar
+  resources :periods
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
