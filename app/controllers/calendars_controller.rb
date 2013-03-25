@@ -20,4 +20,13 @@ class CalendarsController < ApplicationController
     @calendar.update_attributes(params[:calendar])
     respond_with @calendar, location: edit_calendar_url(@calendar)
   end
+
+  def make_paid
+    if @calendar.return_hex == params[:return_hex]
+      @calendar.make_paid
+      redirect_to edit_calendar_url(@calendar)
+    else
+      redirect_to edit_calendar_url(@calendar), notice: "Invalid payment identifier"
+    end
+  end
 end

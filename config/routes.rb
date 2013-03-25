@@ -1,7 +1,9 @@
 Calendar::Application.routes.draw do
   devise_for :users
 
-  resources :calendars
+  resources :calendars do
+    get :make_paid, on: :member
+  end
   match '/:id' => 'calendars#show', as: :public_calendar
   resources :periods
 
