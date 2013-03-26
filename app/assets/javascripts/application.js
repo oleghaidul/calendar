@@ -15,3 +15,5 @@
 //= require twitter/bootstrap
 //= require jquery_nested_form
 //= require_tree .
+//= require jquery-ui
+//= require bootstrap-datepicker

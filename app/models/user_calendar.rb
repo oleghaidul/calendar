@@ -3,6 +3,7 @@ class UserCalendar < ActiveRecord::Base
 
   has_many :periods, foreign_key: :calendar_id
   accepts_nested_attributes_for :periods
+  validates :name, presence: true
 
   def paypal_url(return_url)
     return_hex = SecureRandom.hex(10)

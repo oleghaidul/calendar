@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  helper LaterDude::CalendarHelper
   load_and_authorize_resource :user_calendar, instance_name: :calendar, parent: false
   def index
   end
@@ -12,8 +13,11 @@ class CalendarsController < ApplicationController
 
   def create
     @calendar.attributes = params[:calendar]
-    @calendar.save
-    respond_with @calendar, location: edit_calendar_url(@calendar)
+    if @calendar.save
+      respond_with @calendar, location: edit_calendar_url(@calendar)
+    else
+      respond_with @calendar
+    end
   end
 
   def update
