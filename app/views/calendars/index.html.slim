@@ -1,3 +1,62 @@
 = link_to 'Create new calendar', new_calendar_url
 = render 'table'
-= calendar_for(2013, 3)
+.calendar-wrapper
+  = calendar_for(2013, 3)
+
+.calendar-wrapper
+  .calendar
+    .header
+      span March
+    .day-headers
+      .day-header
+        span SU
+      .day-header
+        span SU
+      .day-header
+        span SU
+      .day-header
+        span SU
+      .day-header
+        span SU
+      .day-header
+        span SU
+      .day-header
+        span SU
+    .calendar-body
+      .day.blank
+        = image_tag 'blank_image.gif'
+      .day.blank
+        = image_tag 'blank_image.gif'
+      .day.blank
+        = image_tag 'blank_image.gif'
+      .day.blank
+        = image_tag 'blank_image.gif'
+      .day.blank
+        = image_tag 'blank_image.gif'
+      .day.blank
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 1
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 2
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 3
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 4
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 5
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 6
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 7
+        = image_tag 'blank_image.gif'
+      .day.blank
+        span 8
+        = image_tag 'blank_image.gif'
+

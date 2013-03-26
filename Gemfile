@@ -18,7 +18,7 @@ gem "simple-navigation-bootstrap"
 gem "less-rails"
 gem "slim-rails", "~> 1.1.0"
 gem "twitter-bootstrap-rails"
-gem 'later_dude', '>= 0.3.1'
+gem 'later_dude', :git => 'git://github.com/oleghaidul/later_dude.git'
 gem 'bootstrap-datepicker-rails'
 
 # Gems used only for assets and not required
