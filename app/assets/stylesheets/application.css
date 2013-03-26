@@ -12,3 +12,17 @@
  *= require_tree .
  *= require bootstrap-datepicker
  */
+ table.my_calendar td {
+  vertical-align: top;
+ }
+
+ table.my_calendar {
+ }
+ body {
+  margin-top: 5px;
+ }
+
+div.popover.right .arrow{
+  top: 21%;
+  padding-top: 3px;
+}
