@@ -1,0 +1,4 @@
+.calendar-wrapper
+  = @calendar.name
+  - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each_with_index do |value, index|
+    div id="month_#{index}"= calendar_for(value.split.first.to_i, value.split.last.to_i)
