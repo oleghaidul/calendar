@@ -36,7 +36,7 @@ div.popover.right .arrow{
 }
 
 .calendar-wrapper .calendar {
-  width:238px;display:inline-block;*float:left;text-align:center;border-radius:3px;vertical-align:top
+  width:165px;display:inline-block;*float:left;text-align:center;border-radius:3px;vertical-align:top
 }
 
 .calendar-wrapper .calendar{margin:0 10px 0 0;border:1px solid #d3e1ef;overflow:hidden}
@@ -60,94 +60,94 @@ div.popover.right .arrow{
   position: absolute;
   top: 70px;
   left: 50px;
-  width: 246px;
-  height: 240px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_1 {
   position: absolute;
   top: 70px;
-  left: 300px;
-  width: 246px;
-  height: 240px;
+  left: 220px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_2 {
   position: absolute;
   top: 70px;
-  left: 550px;
-  width: 246px;
-  height: 240px;
+  left: 390px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_3 {
   position: absolute;
   top: 70px;
-  left: 800px;
-  width: 246px;
-  height: 240px;
+  left: 560px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_4 {
   position: absolute;
-  top: 320px;
+  top: 259px;
   left: 50px;
-  width: 246px;
-  height: 240px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_5 {
   position: absolute;
-  top: 320px;
-  left: 300px;
-  width: 246px;
-  height: 240px;
+  top: 259px;
+  left: 220px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_6 {
   position: absolute;
-  top: 320px;
-  left: 550px;
-  width: 246px;
-  height: 240px;
+  top: 259px;
+  left: 390px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_7 {
   position: absolute;
-  top: 320px;
-  left: 800px;
-  width: 246px;
-  height: 240px;
+  top: 259px;
+  left: 560px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_8 {
   position: absolute;
-  top: 537px;
+  top: 448px;
   left: 50px;
-  width: 246px;
-  height: 240px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_9 {
   position: absolute;
-  top: 537px;
-  left: 300px;
-  width: 246px;
-  height: 240px;
+  top: 448px;
+  left: 220px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_10 {
   position: absolute;
-  top: 537px;
-  left: 550px;
-  width: 246px;
-  height: 240px;
+  top: 448px;
+  left: 390px;
+  width: 167px;
+  height: 186px;
 }
 
 #month_11 {
   position: absolute;
-  top: 537px;
-  left: 800px;
-  width: 246px;
-  height: 240px;
+  top: 448px;
+  left: 560px;
+  width: 167px;
+  height: 186px;
 }
