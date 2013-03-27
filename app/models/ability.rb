@@ -12,7 +12,7 @@ class Ability
 
   def user
     can :manage, UserCalendar, user_id: @user.id
-    can :create, Period
+    can :manage, Period
   end
 
   def guest

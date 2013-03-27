@@ -1,8 +1,12 @@
-= simple_form_for(@period) do |f|
-  = f.input :info, :input_html => {:rows => 2 }
-  = f.input :note, :input_html => {:rows => 2 }
-  = f.input :period_type
-  = f.input :start_date, :as => :string, :input_html => {:class => "datepicker" }
-  = f.input :end_date, :as => :string, :input_html => {:class => "datepicker" }
-  =f.button :submit
-  span.btn.close_form Close
+.popover-form
+  = simple_form_for @period, html: {class: 'form-horizontal'} do |f|
+    = f.input :info, :input_html => {:rows => 2 }
+    = f.input :note, :input_html => {:rows => 2 }
+    = f.input :period_type
+    = f.input :start_date, :as => :string, :input_html => {:class => "datepicker" }
+    = f.input :end_date, :as => :string, :input_html => {:class => "datepicker" }
+    = f.input :calendar_id, as: :hidden, input_html: {value: @calendar.id}
+    .pull-right.buttons
+      span.btn.close_form Close
+      = f.button :submit, class: 'btn btn-success'
+    .clearfix

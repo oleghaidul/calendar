@@ -1,12 +1,20 @@
-= simple_nested_form_for @calendar, html: {class: 'form-horizontal'}, as: :calendar, url: calendar_path(@calendar) do |f|
-  = f.input :name
-  = f.input :active
+.span8.content.offset1
+  = simple_form_for @calendar, html: {class: 'form-horizontal'}, as: :calendar, url: calendar_path(@calendar) do |f|
+    .span4
+      = f.input :name
+      = f.input :active
 
-  = f.submit 'Update Calendar', class: 'btn btn-success'
+    .span1.offset2
+      = f.submit 'Update Calendar', class: 'btn btn-success'
+  .clearfix
 
-- if @calendar.paid?
-  a href="#" class="popover-link btn btn-large btn-danger" data-toggle="popover" title="A Title" data-content="#{render 'popover'}" Click to toggle popover
+.span8.content.offset2
+  .ability data-editable="true" data-calendar-id="#{@calendar.id}"
+  - if @calendar.paid?
+    .calendar-wrapper
+      - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each_with_index do |value, index|
+        = calendar_for(value.split.first.to_i, value.split.last.to_i)
 
-  #calendar
-- else
-  = link_to 'Paypal', @calendar.paypal_url(make_paid_calendar_url(@calendar))
+    #calendar
+  - else
+    = link_to 'Paypal', @calendar.paypal_url(make_paid_calendar_url(@calendar))

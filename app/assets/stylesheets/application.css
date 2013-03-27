@@ -39,115 +39,37 @@ div.popover.right .arrow{
   width:165px;display:inline-block;*float:left;text-align:center;border-radius:3px;vertical-align:top
 }
 
-.calendar-wrapper .calendar{margin:0 10px 0 0;border:1px solid #d3e1ef;overflow:hidden}
+.calendar-wrapper .calendar{margin:0 10px 3px 0;border:1px solid #d3e1ef;overflow:hidden;min-height:185px;}
 .calendar-wrapper .calendar *{font-family:Arial,Helvetica,sans-serif}
-.calendar-wrapper .calendar .header{border-bottom:1px solid #d3e1ef;background-color:#e3edf6;height:auto;padding:5px 0;text-align:center;font-size:12px}
+.calendar-wrapper .calendar .header{border-bottom:1px solid #d3e1ef;background-color:#D5EBDA;height:auto;padding:1px 0;text-align:center;font-size:12px}
 .calendar-wrapper .calendar .day-headers{background-color:#f1f5f8;overflow:hidden}
 .calendar-wrapper .calendar .day-headers .day-header{line-height:15px;font-size:9px}
 .calendar-wrapper .calendar .day-headers .day-header span{color:#838383}
 .calendar-wrapper .calendar .day-header,.calendar-wrapper .calendar .cal-res,.calendar-wrapper .calendar .day{position:relative;width:14.28%;float:left;text-align:center}
 .calendar-wrapper .calendar .cal-res .day{width:100%}
-.calendar-wrapper .calendar .day span{cursor:pointer;position:absolute;left:0;top:0;width:100%;color:#818181;font-size:12px;line-height:34px}
+.calendar-wrapper .calendar .day span{cursor:pointer;position:absolute;left:0;top:0;width:100%;color:#818181;font-size:12px;line-height:24px}
 .calendar-wrapper .calendar .blocked span{color:#ccc}
 
-.calendar_name {
-  position: absolute;
-  top: 47px;
-  left: 100px;
+.content {
+  max-width: 750px;
 }
 
-#month_0 {
-  position: absolute;
-  top: 70px;
-  left: 50px;
-  width: 167px;
-  height: 186px;
+.popover {
+  min-width: 400px;
 }
 
-#month_1 {
-  position: absolute;
-  top: 70px;
-  left: 220px;
-  width: 167px;
-  height: 186px;
+.close_form {
+  margin-right: 10px;
 }
 
-#month_2 {
-  position: absolute;
-  top: 70px;
-  left: 390px;
-  width: 167px;
-  height: 186px;
+.popover-form .form-horizontal .control-label {
+  width: 100px;
 }
 
-#month_3 {
-  position: absolute;
-  top: 70px;
-  left: 560px;
-  width: 167px;
-  height: 186px;
+.popover-form .form-horizontal .controls {
+  margin-left: 120px;
 }
 
-#month_4 {
-  position: absolute;
-  top: 259px;
-  left: 50px;
-  width: 167px;
-  height: 186px;
-}
-
-#month_5 {
-  position: absolute;
-  top: 259px;
-  left: 220px;
-  width: 167px;
-  height: 186px;
-}
-
-#month_6 {
-  position: absolute;
-  top: 259px;
-  left: 390px;
-  width: 167px;
-  height: 186px;
-}
-
-#month_7 {
-  position: absolute;
-  top: 259px;
-  left: 560px;
-  width: 167px;
-  height: 186px;
-}
-
-#month_8 {
-  position: absolute;
-  top: 448px;
-  left: 50px;
-  width: 167px;
-  height: 186px;
-}
-
-#month_9 {
-  position: absolute;
-  top: 448px;
-  left: 220px;
-  width: 167px;
-  height: 186px;
-}
-
-#month_10 {
-  position: absolute;
-  top: 448px;
-  left: 390px;
-  width: 167px;
-  height: 186px;
-}
-
-#month_11 {
-  position: absolute;
-  top: 448px;
-  left: 560px;
-  width: 167px;
-  height: 186px;
+.popover-form .buttons {
+  margin-right: 30px;
 }
