@@ -1,17 +1,18 @@
 $ ->
   $('.day').popover(
     html: true
-    offset: 5
     title: "form"
     trigger: "manual"
   ).click ->
     $('.popover').remove()
     $(this).popover "show"
     position = $(this).position()
-    if position.top < 248
-      $('.popover').css("top", position.top - 100)
-    else
-      $('.popover').css("top", 248)
+    $('.popover').css("top", position.top - 100)
+    correct = $(this).offset()
+    if correct.top > 248
+      $('.popover').css('top', 300 - correct.top)
+    if correct.top > 610
+      $('.popover').css('top', -315)
     pop_pos = $('.popover').position()
     temp = position.top - pop_pos.top
     proc = temp * 100 / 522
