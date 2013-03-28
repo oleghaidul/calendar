@@ -3,17 +3,8 @@ class Period < ActiveRecord::Base
   attr_accessor :day
   belongs_to :calendar
 
-  def self.process(calendar_id, day)
-    if Date === day
-      calendar = Calendar.find(calendar_id)
-      period = calendar.periods.where { (start_date <= day) & (end_date >= day) }.first
-      if period
-        period.day = day
-        {status: period.status, color: period.color, period_id: period.id}
-      else
-        {status: 'not_found'}
-      end
-    end
+  def process
+    {status: period.status, color: period.color, period_id: period.id}
   end
 
   def status

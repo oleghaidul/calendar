@@ -27,4 +27,16 @@ class UserCalendar < ActiveRecord::Base
   def make_paid
     update_attribute(:paid, true)
   end
+
+  def process(day)
+    if Date === day
+      period = periods.where { (start_date <= day) & (end_date >= day) }.first
+      if period
+        period.day = day
+        period.process
+      else
+        {status: 'not_found'}
+      end
+    end
+  end
 end
