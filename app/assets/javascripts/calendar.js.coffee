@@ -3,6 +3,7 @@ $ ->
 
   if $('.ability').data('editable')
     $('.day').click ->
+      data = $(this).attr("params").split("-")
       $('.day').popover(
         html: true
         placement: get_popover_placement
@@ -29,6 +30,7 @@ $ ->
         url: "/periods/new?calendar_id=#{calendar_id}"
         cache: false
         ).done ->
+          $('#period_start_date').val(data[1] + "/" + data[2] + "/" + data[0])
           $('[class~=datepicker]').datepicker
             "autoclose": true
           $('.close_form').click ->
