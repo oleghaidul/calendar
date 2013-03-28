@@ -125,3 +125,26 @@ div.tabbable.tabs-below .nav-tabs li span:hover {
 }
 
 /*show more*/
+
+table#index-table td {
+  margin: 0;
+  padding: 0px;
+}
+
+table p.day-name,  table p.day-number{
+  width: 25px;
+  font-size: 10px;
+  text-align: center;
+}
+
+table p.calendar-name {
+  margin: 0;
+  padding: 0px
+}
+
+table p.month-name {
+  margin: 0;
+  padding: 2px;
+  width: 100%;
+  text-align: center;
+}
