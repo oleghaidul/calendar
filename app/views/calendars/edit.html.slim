@@ -17,4 +17,5 @@
 
     #calendar
   - else
-    = link_to 'Paypal', @calendar.paypal_url(make_paid_calendar_url(@calendar))
+    h4 Your calendar is not activated
+    = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar))

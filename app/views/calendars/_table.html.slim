@@ -1,37 +1,14 @@
-- if @calendars.any?
-  -twelve_month.each do |value|
-    table.table.table-bordered#index-table
-      tr
-        td
-          p.month-name= value.split[2]
-      tr
-        td
-        - days_name_of_month(value.split[0].to_i, value.split[1].to_i).each do |day_name|
-          td
-            p.day-name= day_name
-      - @calendars.each do |calendar|
-        tr
-          td
-            p.calendar-name
-              / dont know where put this links
-              = link_to calendar.name, edit_calendar_path(calendar)
-              = link_to "Your link", public_calendar_path(calendar)
-          - days_of_month(value.split[0].to_i, value.split[1].to_i).each do |day|
-            td
-              p.day-number= day
-
-
-
-
-  / table.table.table-hover
-  /   thead
-  /     th Id
-  /     th Calendar name
-  /     th See live
-  /   tbody
-  /     - @calendars.each do |calendar|
-  /       tr
-  /         table
-  /         td= calendar.id
-  /         td= link_to calendar.name, edit_calendar_path(calendar)
-  /         td= link_to "Your link", public_calendar_path(calendar)
+fieldset
+  legend My calendars
+  - if @calendars.any?
+    table.table.table-hover
+      thead
+        th Id
+        th Calendar name
+        th See live
+      tbody
+        - @calendars.each do |calendar|
+          tr
+            td= calendar.id
+            td= link_to calendar.name, edit_calendar_path(calendar)
+            td= link_to "Your link", public_calendar_path(calendar)

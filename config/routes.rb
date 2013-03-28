@@ -3,6 +3,7 @@ Calendar::Application.routes.draw do
 
   resources :calendars do
     get :make_paid, on: :member
+    get :list, on: :collection
   end
   match '/:id' => 'calendars#show', as: :public_calendar, constraints: { id: /\d/ }
   resources :periods

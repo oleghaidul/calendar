@@ -138,7 +138,7 @@ table p.day-name,  table p.day-number{
 }
 
 table p.calendar-name {
-  margin: 0;
+  margin: 3px 0 0 3px;
   padding: 0px
 }
 

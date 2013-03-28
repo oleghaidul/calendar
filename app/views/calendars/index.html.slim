@@ -1,3 +1,10 @@
-= link_to 'Create new calendar', new_calendar_url
+.pull-right
+  = link_to 'Create new calendar', new_calendar_url, remote: true
+
 = render 'table'
 
+#new_calendar.modal.hide.fade aria-hidden="true" aria-labelledby="newCalendarLabel" role="dialog" tabindex="-1"
+  .modal-header
+    button.close aria-hidden="true" data-dismiss="modal" type="button" ×
+    h3#myModalLabel Create new calendar
+  .modal-body

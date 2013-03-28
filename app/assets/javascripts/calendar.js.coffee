@@ -37,10 +37,10 @@ $ ->
             $('.popover').remove()
           $('#show_more').click ->
             if $('.show_more_fields').css("display") == "none"
-              $('.show_more_fields').show('fast')
+              $('.show_more_fields').show('slow')
               $('#show_more').html("show less")
             else
-              $('.show_more_fields').hide('fast')
+              $('.show_more_fields').hide('slow')
               $('#show_more').html("show more")
 
   get_popover_placement = (pop, dom_el) ->

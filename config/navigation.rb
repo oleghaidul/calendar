@@ -3,7 +3,8 @@ SimpleNavigation::Configuration.run do |navigation|
     if user_signed_in?
       primary.item :sign_out, 'Sign Out', destroy_user_session_path, method: :delete
       primary.item :edit_profile, 'Edit Profile', edit_user_registration_path
-      primary.item :calendars, 'My calendars', calendars_path, highlights_on: proc { @calendars || @calendar }
+      primary.item :calendars, 'My calendars', calendars_path, highlights_on: proc { (@calendars || @calendar) && action_name != 'list' }
+      primary.item :calendars_list, 'Calendars list', list_calendars_path, highlights_on: proc { (@calendars || @calendar) && action_name == 'list' }
     else
       primary.item :login, 'Sign In', new_user_session_path
       primary.item :sign_up, 'Sign Up', new_user_registration_path

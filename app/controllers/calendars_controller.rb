@@ -2,6 +2,8 @@ class CalendarsController < ApplicationController
   layout 'clear', only: :show
   helper LaterDude::CalendarHelper
   load_and_authorize_resource :user_calendar, instance_name: :calendar, parent: false
+  respond_to :js, only: :new
+
   def index
   end
 
