@@ -15,6 +15,7 @@ gem 'responders'
 gem 'simple_form'
 gem "simple-navigation"
 gem "simple-navigation-bootstrap"
+gem 'squeel'
 gem "less-rails"
 gem "slim-rails", "~> 1.1.0"
 gem "twitter-bootstrap-rails"
