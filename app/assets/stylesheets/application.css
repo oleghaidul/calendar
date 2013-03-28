@@ -35,6 +35,10 @@ div.popover.right .arrow{
   padding-top: 3px;
 }
 
+div.popover.left .arrow{
+  padding-top: 3px;
+}
+
 .calendar-wrapper .calendar {
   width:165px;display:inline-block;*float:left;text-align:center;border-radius:3px;vertical-align:top
 }
@@ -73,3 +77,51 @@ div.popover.right .arrow{
 .popover-form .buttons {
   margin-right: 30px;
 }
+
+/*show more*/
+
+.show_more_fields {
+  display: none;
+}
+
+div.tabbable.tabs-below .nav.nav-tabs li {
+  text-align: center;
+  width: 100%;
+  text-align: center;
+  margin-top: -1px;
+}
+
+div.tabbable.tabs-below .nav-tabs li span{
+  cursor: pointer;
+  width: 60px;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #5bb75b;
+  background-image: -moz-linear-gradient(top, #62c462, #51a351);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+  background-image: -o-linear-gradient(top, #62c462, #51a351);
+  background-image: linear-gradient(to bottom, #62c462, #51a351);
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 3px 15px 3px 15px;
+  margin-top: 0px;
+  -webkit-border-bottom-right-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+div.tabbable.tabs-below .nav-tabs li span:hover {
+  background-color: #51a351;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+}
+
+/*show more*/

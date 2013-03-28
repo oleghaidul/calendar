@@ -2,20 +2,24 @@ $ ->
   calendar_id = $('.ability').data('calendar-id')
 
   if $('.ability').data('editable')
-    $('.day').popover(
-      html: true
-      title: "<h4>Create new period</h4>"
-      trigger: "manual"
-    ).click ->
+    $('.day').click ->
+      $('.day').popover(
+        html: true
+        placement: get_popover_placement
+        title: "<h4>Create new period</h4>"
+        trigger: "manual"
+      )
       $('.popover').remove()
       $(this).popover "show"
       position = $(this).position()
-      $('.popover').css("top", position.top - 100)
-      correct = $(this).offset()
-      if correct.top > 248
-        $('.popover').css('top', 300 - correct.top)
-      if correct.top > 610
-        $('.popover').css('top', -315)
+      calendar_height = $('.calendar-wrapper').css("height")
+      calendar_height = parseInt(calendar_height)
+      pop_top = $('.popover').position().top
+      crit_top = calendar_height - 100
+      if pop_top < crit_top
+        $('.popover').css("top", position.top - 150)
+      else
+        $('.popover').css("top", crit_top)
       pop_pos = $('.popover').position()
       temp = position.top - pop_pos.top
       proc = temp * 100 / 522
@@ -28,4 +32,18 @@ $ ->
           $('[class~=datepicker]').datepicker
             "autoclose": true
           $('.close_form').click ->
-            $('.popover').hide()
+            $('.popover').remove()
+          $('#show_more').click ->
+            if $('.show_more_fields').css("display") == "none"
+              $('.show_more_fields').show('fast')
+              $('#show_more').html("show less")
+            else
+              $('.show_more_fields').hide('fast')
+              $('#show_more').html("show more")
+
+  get_popover_placement = (pop, dom_el) ->
+    width = window.innerWidth
+    width = width / 2
+    left_pos = $(dom_el).offset().left
+    return "left"  if width < left_pos
+    "right"
