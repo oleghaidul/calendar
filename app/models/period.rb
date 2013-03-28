@@ -4,7 +4,9 @@ class Period < ActiveRecord::Base
   belongs_to :calendar
 
   def process
-    {status: period.status, color: period.color, period_id: period.id}
+    # TODO: add color field
+    # {status: status, color: color, period_id: id}
+    {status: status, period_id: id}
   end
 
   def status
@@ -20,10 +22,10 @@ class Period < ActiveRecord::Base
   private
 
     def start?
-      period.start_date == day
+      start_date == day
     end
 
     def end?
-      period.end_date == day
+      end_date == day
     end
 end
