@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325181753) do
+ActiveRecord::Schema.define(:version => 20130329141315) do
 
   create_table "periods", :force => true do |t|
     t.integer  "calendar_id"
@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(:version => 20130325181753) do
     t.string   "period_type"
     t.text     "info"
     t.text     "note"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "color",       :default => "#ff0000"
   end
 
   create_table "user_calendars", :force => true do |t|

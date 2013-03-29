@@ -1,12 +1,12 @@
 class Period < ActiveRecord::Base
-  attr_accessible :calendar_id, :end_date, :info, :note, :period_type, :start_date
+  attr_accessible :calendar_id, :end_date, :info, :note, :period_type, :start_date, :color
   attr_accessor :day
   belongs_to :calendar
 
   def process
     # TODO: add color field
     # {status: status, color: color, period_id: id}
-    {status: status, period_id: id}
+    {status: status, period_id: id, color: color}
   end
 
   def status
