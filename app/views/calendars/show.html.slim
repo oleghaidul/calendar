@@ -4,4 +4,4 @@
   .calendar-wrapper
     br
     - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
-      = calendar_for(value.split.first.to_i, value.split.last.to_i, calendar: @calendar)
+      = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a)

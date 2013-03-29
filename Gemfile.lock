@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/oleghaidul/later_dude.git
-  revision: c476f4cef99b9ba2693b978cb9c9b2cf8d069773
+  revision: 31f08b55a3c3b361679d6af027b0d47afe1b376e
   specs:
     later_dude (0.3.1)
       rails (>= 2.3)
