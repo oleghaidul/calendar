@@ -31,7 +31,11 @@ class UserCalendar < ActiveRecord::Base
   def process(day)
     if Date === day
       period = periods.where { (start_date <= day) & (end_date >= day) }.first
-      if period
+      start_period = periods.where(start_date: day).first
+      end_period = periods.where(end_date: day).first
+      if start_period && end_period
+        {status: 'bouth', period_id: [start_period.id, end_period.id]}
+      elsif period
         period.day = day
         period.process
       else

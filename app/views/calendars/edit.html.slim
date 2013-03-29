@@ -12,8 +12,8 @@
   .ability data-editable="true" data-calendar-id="#{@calendar.id}"
   - if @calendar.paid?
     .calendar-wrapper
-      - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each_with_index do |value, index|
-        = calendar_for(value.split.first.to_i, value.split.last.to_i)
+      - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
+        = calendar_for(value.split.first.to_i, value.split.last.to_i, calendar: @calendar)
 
     #calendar
   - else
