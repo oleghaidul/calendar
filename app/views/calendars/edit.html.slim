@@ -19,3 +19,8 @@
   - else
     h4 Your calendar is not activated
     = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar))
+
+  - @colors.each do |color|
+    span.colors
+      = "#{color.first} - "
+      span.color style="background-color: #{color.last}"

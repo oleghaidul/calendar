@@ -230,3 +230,17 @@ table p.month-name {
 div.colorpicker {
   z-index: 9999;
 }
+
+.hover {
+  opacity: 0.7;
+}
+
+span.colors {
+  margin-right: 10px;
+}
+
+span.colors .color {
+  display: inline-block;
+  min-width: 30px;
+  min-height: 15px;
+}

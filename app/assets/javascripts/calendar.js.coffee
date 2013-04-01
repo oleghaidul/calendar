@@ -26,25 +26,46 @@ $ ->
       proc = temp * 100 / 522
       y_coord = proc / 100 * 522 + 8
       $('.arrow').css("top", y_coord)
-      $.ajax(
-        url: "/periods/new?calendar_id=#{calendar_id}"
-        cache: false
-        ).done ->
-          $('#period_start_date').val(data)
-          $('[class~=datepicker]').datepicker
-            "autoclose": true
-            format: 'yyyy-mm-dd'
-          $('input.cp1').colorpicker()
-          $('.close_form').click ->
-            $('.colorpicker.dropdown-menu').remove()
-            $('.popover').remove()
-          $('#show_more').click ->
-            if $('.show_more_fields').css("display") == "none"
-              $('.show_more_fields').show('slow')
-              $('#show_more').html("show less")
-            else
-              $('.show_more_fields').hide('slow')
-              $('#show_more').html("show more")
+      if !$(@).hasClass('hover')
+        $.ajax(
+          url: "/periods/new?calendar_id=#{calendar_id}"
+          cache: false
+          ).done ->
+            $('#period_start_date').val(data)
+            $('[class~=datepicker]').datepicker
+              "autoclose": true
+              format: 'yyyy-mm-dd'
+            $('input.cp1').colorpicker()
+            $('.close_form').click ->
+              $('.colorpicker.dropdown-menu').remove()
+              $('.popover').remove()
+            $('#show_more').click ->
+              if $('.show_more_fields').css("display") == "none"
+                $('.show_more_fields').show('slow')
+                $('#show_more').html("show less")
+              else
+                $('.show_more_fields').hide('slow')
+                $('#show_more').html("show more")
+      else
+        period_id = $(@).data('period-id')
+        $.ajax(
+          url: "/periods/#{period_id}/edit?calendar_id=#{calendar_id}"
+          cache: false
+          ).done ->
+            $('[class~=datepicker]').datepicker
+              "autoclose": true
+              format: 'yyyy-mm-dd'
+            $('input.cp1').colorpicker()
+            $('.close_form').click ->
+              $('.colorpicker.dropdown-menu').remove()
+              $('.popover').remove()
+            $('#show_more').click ->
+              if $('.show_more_fields').css("display") == "none"
+                $('.show_more_fields').show('slow')
+                $('#show_more').html("show less")
+              else
+                $('.show_more_fields').hide('slow')
+                $('#show_more').html("show more")
 
   get_popover_placement = (pop, dom_el) ->
     width = window.innerWidth
@@ -88,3 +109,6 @@ $ ->
             color = $(this).data("color")
             $(this).css("background", color)
 
+  $(".day").hover ->
+    period_id = $(@).data('period-id')
+    $(".day[data-period-id=#{period_id}]").toggleClass('hover')

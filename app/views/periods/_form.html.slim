@@ -5,6 +5,7 @@
     = f.input :end_date, :as => :string, :input_html => {:class => "datepicker" }
     .show_more_fields
       = f.input :color, input_html: { class: "span1 cp1" }
+      = f.input :color_name
       = f.input :info, :input_html => {:rows => 2 }
       = f.input :note, :input_html => {:rows => 2 }
     = f.input :calendar_id, as: :hidden, input_html: {value: @calendar.id}

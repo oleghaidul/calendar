@@ -14,6 +14,10 @@ class CalendarsController < ApplicationController
   def show
   end
 
+  def edit
+    @colors = @calendar.periods.order { created_at }.collect { |p| [p.color_name, p.color] }.uniq
+  end
+
   def create
     @calendar.attributes = params[:calendar]
     if @calendar.save

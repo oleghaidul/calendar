@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130329141315) do
+ActiveRecord::Schema.define(:version => 20130401185336) do
 
   create_table "periods", :force => true do |t|
     t.integer  "calendar_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130329141315) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.string   "color",       :default => "#ff0000"
+    t.string   "color_name"
   end
 
   create_table "user_calendars", :force => true do |t|
