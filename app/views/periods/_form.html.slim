@@ -8,7 +8,7 @@
       = f.input :color_name
       = f.input :info, :input_html => {:rows => 2 }
       = f.input :note, :input_html => {:rows => 2 }
-    = f.input :calendar_id, as: :hidden, input_html: {value: @calendar.id}
+    = f.input :user_calendar_id, as: :hidden, input_html: {value: @calendar.id}
     .tabbable.tabs-below
       ul.nav.nav-tabs
         li

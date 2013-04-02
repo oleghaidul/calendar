@@ -1,7 +1,7 @@
 class UserCalendar < ActiveRecord::Base
   attr_accessible :active, :name, :paid, :periods_attributes
 
-  has_many :periods, foreign_key: :calendar_id
+  has_many :periods, foreign_key: :user_calendar_id
   accepts_nested_attributes_for :periods
   validates :name, presence: true
 

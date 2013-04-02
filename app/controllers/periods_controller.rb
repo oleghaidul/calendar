@@ -12,11 +12,12 @@ class PeriodsController < ApplicationController
   end
 
   def create
-    @calendar = UserCalendar.find(params[:period][:calendar_id])
+    @calendar = UserCalendar.find(params[:period][:user_calendar_id])
+    @colors = @calendar.periods.order { created_at }.collect { |p| [p.color_name, p.color] }.uniq
     if @period.save
       respond_with @period, location: edit_calendar_url(@calendar)
     else
-      respond_with @period
+      redirect_to edit_calendar_url(@calendar), notice: @period.errors.full_messages.join(', ')
     end
   end
 
