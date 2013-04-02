@@ -123,7 +123,8 @@ $ ->
     matches = patt.exec(color)
     rgba = "rgba(" + parseInt(matches[1], 16) + "," + parseInt(matches[2], 16) + "," + parseInt(matches[3], 16) + ", 0.5)"
     $(".day[data-period-id^='[#{period_id}']").toggleClass('hover')
-    $(".day[data-period-id=#{period_id}]").toggleClass('hover')
+    $(".day[data-period-id=#{period_id}][data-status=start]").toggleClass('hover')
+    $(".day[data-period-id=#{period_id}][data-status=between]").toggleClass('hover')
     $(".day[data-period-id=#{period_id}]").fadeTo(0, 0.5)
     if $(".day[data-period-id^='[#{period_id}']").is("*")
       element_color = $(".day[data-period-id^='[#{period_id}']").data("color")[1]
@@ -149,8 +150,6 @@ $ ->
     patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/
     matches = patt.exec(color)
     rgba = "rgba(" + parseInt(matches[1], 16) + "," + parseInt(matches[2], 16) + "," + parseInt(matches[3], 16) + ", 1)"
-    $(".day[data-period-id^='[#{period_id}']").toggleClass('hover')
-    $(".day[data-period-id=#{period_id}]").toggleClass('hover')
     $(".day[data-period-id=#{period_id}]").fadeTo(0, 1)
     if $(".day[data-period-id^='[#{period_id}']").is("*")
       element_color = $(".day[data-period-id^='[#{period_id}']").data("color")[1]
