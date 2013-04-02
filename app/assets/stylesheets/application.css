@@ -231,9 +231,9 @@ div.colorpicker {
   z-index: 9999;
 }
 
-.hover {
+/*.hover {
   opacity: 0.7;
-}
+}*/
 
 span.colors {
   margin-right: 10px;

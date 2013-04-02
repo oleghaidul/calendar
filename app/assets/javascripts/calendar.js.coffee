@@ -35,6 +35,7 @@ $ ->
             $('[class~=datepicker]').datepicker
               "autoclose": true
               format: 'yyyy-mm-dd'
+              startDate: data
             $('input.cp1').colorpicker()
             $('.close_form').click ->
               $('.colorpicker.dropdown-menu').remove()
@@ -55,6 +56,7 @@ $ ->
             $('[class~=datepicker]').datepicker
               "autoclose": true
               format: 'yyyy-mm-dd'
+              startDate: data
             $('input.cp1').colorpicker()
             $('.close_form').click ->
               $('.colorpicker.dropdown-menu').remove()
@@ -110,5 +112,55 @@ $ ->
             $(this).css("background", color)
 
   $(".day").hover ->
-    period_id = $(@).data('period-id')
+    period_id = $(@).data('period-id')[0] || $(@).data('period-id')
+    status = $(@).data("status")
+    if status == "bouth"
+      color = $(@).data('color')[0]
+      end_color = $(@).data('color')[1]
+    else
+      color = $(@).data('color')
+    patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/
+    matches = patt.exec(color)
+    rgba = "rgba(" + parseInt(matches[1], 16) + "," + parseInt(matches[2], 16) + "," + parseInt(matches[3], 16) + ", 0.5)"
+    $(".day[data-period-id^='[#{period_id}']").toggleClass('hover')
     $(".day[data-period-id=#{period_id}]").toggleClass('hover')
+    $(".day[data-period-id=#{period_id}]").fadeTo(0, 0.5)
+    if $(".day[data-period-id^='[#{period_id}']").is("*")
+      element_color = $(".day[data-period-id^='[#{period_id}']").data("color")[1]
+      $(".day[data-period-id^='[#{period_id}']").css("background", "-webkit-linear-gradient(-45deg, "+element_color+" 49%, rgba(0,0,0,0.5) 50%, "+rgba+" 51%)")
+    else
+      element_color = $(".day[data-period-id=#{period_id}]").data("color")
+      $(".day[data-period-id=#{period_id}]").fadeTo(1, 0.5)
+    if $(".day[data-period-id$='#{period_id}]']").is("*")
+      element_color1 = $(".day[data-period-id$='#{period_id}]']").data("color")[0]
+      $(".day[data-period-id$='#{period_id}]']").css("background", "-webkit-linear-gradient(-45deg, "+rgba+" 49%, rgba(0,0,0,0.5) 50%, "+element_color1+" 51%)")
+    else
+      element_color = $(".day[data-period-id=#{period_id}]").data("color")
+      $(".day[data-period-id=#{period_id}]").fadeTo(1, 0.5)
+
+  $(".day").mouseleave ->
+    period_id = $(@).data('period-id')[0] || $(@).data('period-id')
+    status = $(@).data("status")
+    if status == "bouth"
+      color = $(@).data('color')[0]
+      end_color = $(@).data('color')[1]
+    else
+      color = $(@).data('color')
+    patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/
+    matches = patt.exec(color)
+    rgba = "rgba(" + parseInt(matches[1], 16) + "," + parseInt(matches[2], 16) + "," + parseInt(matches[3], 16) + ", 1)"
+    $(".day[data-period-id^='[#{period_id}']").toggleClass('hover')
+    $(".day[data-period-id=#{period_id}]").toggleClass('hover')
+    $(".day[data-period-id=#{period_id}]").fadeTo(0, 1)
+    if $(".day[data-period-id^='[#{period_id}']").is("*")
+      element_color = $(".day[data-period-id^='[#{period_id}']").data("color")[1]
+      $(".day[data-period-id^='[#{period_id}']").css("background", "-webkit-linear-gradient(-45deg, "+element_color+" 49%, rgba(0,0,0,0.5) 50%, "+rgba+" 51%)")
+    else
+      element_color = $(".day[data-period-id=#{period_id}]").data("color")
+      $(".day[data-period-id=#{period_id}]").fadeTo(1, 1)
+    if $(".day[data-period-id$='#{period_id}]']").is("*")
+      element_color1 = $(".day[data-period-id$='#{period_id}]']").data("color")[0]
+      $(".day[data-period-id$='#{period_id}]']").css("background", "-webkit-linear-gradient(-45deg, "+rgba+" 49%, rgba(0,0,0,0.5) 50%, "+element_color1+" 51%)")
+    else
+      element_color = $(".day[data-period-id=#{period_id}]").data("color")
+      $(".day[data-period-id=#{period_id}]").fadeTo(1, 1)
