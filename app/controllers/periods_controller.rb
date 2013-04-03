@@ -22,7 +22,7 @@ class PeriodsController < ApplicationController
   end
 
   def update
-    @calendar = UserCalendar.find(params[:period][:calendar_id])
+    @calendar = UserCalendar.find(params[:period][:user_calendar_id])
     @period.update_attributes(params[:period])
     respond_with @period, location: edit_calendar_url(@calendar)
   end

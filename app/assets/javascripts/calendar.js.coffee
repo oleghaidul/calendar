@@ -3,14 +3,18 @@ $ ->
 
   if $('.ability').data('editable')
     $('.day').click ->
+      $('.popover').remove()
+      if !$(@).hasClass('hover')
+        is_hover = true
+      else
+        is_hover = false
       data = $(this).data("date")
       $('.day').popover(
         html: true
         placement: get_popover_placement
-        title: "<h4>Create new period</h4>"
+        title: "title"
         trigger: "manual"
       )
-      $('.popover').remove()
       $(this).popover "show"
       position = $(this).position()
       calendar_height = $('.calendar-wrapper').css("height")
@@ -26,11 +30,13 @@ $ ->
       proc = temp * 100 / 522
       y_coord = proc / 100 * 522 + 8
       $('.arrow').css("top", y_coord)
-      if !$(@).hasClass('hover')
+      $(".popover").hide()
+      if is_hover
         $.ajax(
           url: "/periods/new?calendar_id=#{calendar_id}"
           cache: false
           ).done ->
+            $(".popover").show()
             $('#period_start_date').val(data)
             $('[class~=datepicker]').datepicker
               "autoclose": true
@@ -53,6 +59,7 @@ $ ->
           url: "/periods/#{period_id}/edit?calendar_id=#{calendar_id}"
           cache: false
           ).done ->
+            $(".popover").show()
             $('[class~=datepicker]').datepicker
               "autoclose": true
               format: 'yyyy-mm-dd'
