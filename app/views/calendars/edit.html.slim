@@ -1,11 +1,11 @@
-.span8.content.offset1
-  = simple_form_for @calendar, html: {class: 'form-horizontal'}, as: :calendar, url: calendar_path(@calendar) do |f|
-    .span4
-      = f.input :name
-      = f.input :active
+.span10.offset1
+  = simple_form_for @calendar, html: {class: 'form-horizontal'}, wrapper: :default, as: :calendar, url: calendar_path(@calendar) do |f|
+    = f.input :name, input_html: {class: 'input-medium'}
+    = f.input :active
+    = content_tag(:div, 'Color', class: 'calendar-color', style: 'float:left;padding-bottom: 5px;')
+    = f.input :color, as: :hidden, input_html: {value: '#D5EBDA'}
 
-    .span1.offset2
-      = f.submit 'Update Calendar', class: 'btn btn-success'
+    = f.submit 'Update Calendar', class: 'btn btn-success'
   .clearfix
 
 .span8.content.offset2
@@ -13,7 +13,7 @@
   - if @calendar.paid?
     .calendar-wrapper
       - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
-        = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a)
+        = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a, color: @calendar.color)
 
     #calendar
   - else

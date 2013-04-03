@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require bootstrap-datepicker
+ *= require wcolorpicker
  *= require_tree .
  */
  html, body, .container {
@@ -57,6 +58,7 @@ div.popover.left .arrow{
 .content {
   max-width: 750px;
 }
+
 
 .popover {
   min-width: 400px;
@@ -239,4 +241,43 @@ span.colors .color {
   display: inline-block;
   min-width: 30px;
   min-height: 15px;
+}
+
+.hover {
+  opacity: 0.9;
+}
+
+#edit_calendar .calendar_name {
+  width: 360px;
+  float: left;
+}
+
+#edit_calendar .calendar_active {
+  width: 80px;
+  float: left;
+}
+
+#edit_calendar .calendar_active label {
+  width: 30px;
+}
+
+#edit_calendar .calendar_active .controls {
+  margin-left: 50px;
+}
+
+#edit_calendar .calendar_color {
+  width: 180px;
+  float: left;
+}
+
+#edit_calendar .calendar_color label {
+  width: 50px;
+}
+
+#edit_calendar .calendar_color .controls {
+  margin-left: 50px;
+}
+
+.btn {
+  margin-left: 30px;
 }
