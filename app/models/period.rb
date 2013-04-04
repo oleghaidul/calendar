@@ -10,6 +10,10 @@ class Period < ActiveRecord::Base
 
   after_save :check_date_range
 
+  def color_name
+    read_attribute(:color_name) || 'Default'
+  end
+
   private
 
     def check_intersection
