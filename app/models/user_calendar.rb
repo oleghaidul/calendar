@@ -4,8 +4,9 @@ class UserCalendar < ActiveRecord::Base
   has_many :periods, foreign_key: :user_calendar_id
   accepts_nested_attributes_for :periods
   validates :name, presence: true
+  belongs_to :user
 
-  def paypal_url(return_url)
+  def paypal_url(return_url, notify_url)
     return_hex = SecureRandom.hex(10)
     update_attribute(:return_hex, return_hex)
 
@@ -18,7 +19,8 @@ class UserCalendar < ActiveRecord::Base
       :amount_1 => 13,
       :item_name_1 => 'Calendar',
       :item_number_1 => id,
-      :quantity_1 => 1
+      :quantity_1 => 1,
+      :notify_url => notify_url
     }
 
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query

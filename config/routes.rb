@@ -7,6 +7,7 @@ Calendar::Application.routes.draw do
   end
   match '/:id' => 'calendars#show', as: :public_calendar, constraints: { id: /\d/ }
   resources :periods
+  resources :payment_notifications
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

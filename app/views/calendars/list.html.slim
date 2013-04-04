@@ -1,5 +1,5 @@
 - if @calendars.any?
-  -twelve_month.each do |value|
+  - twelve_month.each do |value|
     table.table.table-bordered#index-table
       tr
         td
@@ -15,5 +15,5 @@
             p.calendar-name
               = link_to calendar.name, edit_calendar_path(calendar)
           - days_of_month(value.split[0].to_i, value.split[1].to_i).each do |day|
-            td
+            td.day
               p.day-number= day

@@ -2,8 +2,7 @@
   = simple_form_for @calendar, html: {class: 'form-horizontal'}, wrapper: :default, as: :calendar, url: calendar_path(@calendar) do |f|
     = f.input :name, input_html: {class: 'input-medium'}
     = f.input :active
-    = content_tag(:div, 'Color', class: 'calendar-color', style: 'float:left;padding-bottom: 5px;')
-    = f.input :color, as: :hidden, input_html: {value: '#D5EBDA'}
+    = f.input :color, input_html: {class: 'input-mini'}
 
     = f.submit 'Update Calendar', class: 'btn btn-success'
   .clearfix
@@ -18,7 +17,7 @@
     #calendar
   - else
     h4 Your calendar is not activated
-    = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar))
+    = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar), payment_notifications_url)
 
   - @colors.each do |color|
     span.colors

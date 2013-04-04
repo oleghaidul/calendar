@@ -15,6 +15,10 @@ class Ability
     can :manage, Period
   end
 
+  def admin
+    can :manage, UserCalendar
+  end
+
   def guest
   end
 

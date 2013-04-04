@@ -17,4 +17,4 @@
 //= require_tree .
 //= require jquery-ui
 //= require bootstrap-datepicker
-//= require wcolorpicker
+//= require bootstrap-colorpicker

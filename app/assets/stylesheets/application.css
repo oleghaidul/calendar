@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require bootstrap-datepicker
- *= require wcolorpicker
  *= require_tree .
  */
  html, body, .container {
@@ -245,6 +244,10 @@ span.colors .color {
 
 .hover {
   opacity: 0.9;
+}
+
+#edit_calendar #calendar_color, #edit_calendar #calendar_name {
+  margin-left: 10px;
 }
 
 #edit_calendar .calendar_name {

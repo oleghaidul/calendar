@@ -42,7 +42,13 @@ $ ->
               "autoclose": true
               format: 'yyyy-mm-dd'
               startDate: data
-            $('input.cp1').colorpicker()
+              $('input.cp1').colorpicker()
+              theme: "red"
+              mode: "click"
+              showSpeed: 200
+              hideSpeed: 200
+              onSelect: (color) ->
+                $('#period_color').val(color)
             $('.close_form').click ->
               $('.colorpicker.dropdown-menu').remove()
               $('.popover').remove()
@@ -64,7 +70,13 @@ $ ->
               "autoclose": true
               format: 'yyyy-mm-dd'
               startDate: data
-            $('input.cp1').colorpicker()
+              $('input.cp1').colorpicker()
+              theme: "red"
+              mode: "click"
+              showSpeed: 200
+              hideSpeed: 200
+              onSelect: (color) ->
+                $('#period_color').val(color)
             $('.close_form').click ->
               $('.colorpicker.dropdown-menu').remove()
               $('.popover').remove()
@@ -119,26 +131,10 @@ $ ->
             $(this).css("background", color)
 
   $(".day").hover ->
-    period_id = $(@).data('period-id')[0] || $(@).data('period-id')
+    if $(@).data('period-id')
+      period_id = $(@).data('period-id')[0] || $(@).data('period-id')
     $(".day[data-period-id^='[#{period_id}']").toggleClass('hover')
     $(".day[data-period-id=#{period_id}][data-status=start]").toggleClass('hover all')
     $(".day[data-period-id=#{period_id}][data-status=between]").toggleClass('hover all')
 
-  $('.calendar-color').wColorPicker
-    initColor: $('.header').css('backgroundColor')
-    theme: "red"
-    mode: "click"
-    showSpeed: 200
-    hideSpeed: 200
-    onSelect: (color) ->
-      $('#calendar_color').val(color)
-
-$.cssHooks.backgroundColor = get: (elem) ->
-  if elem.currentStyle
-    bg = elem.currentStyle["backgroundColor"]
-  else bg = document.defaultView.getComputedStyle(elem, null).getPropertyValue("background-color")  if window.getComputedStyle
-  unless bg.search("rgb") is -1
-    hex = (x) ->
-      ("0" + parseInt(x).toString(16)).slice -2
-    bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-    "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3])
+  $('#calendar_color').colorpicker()

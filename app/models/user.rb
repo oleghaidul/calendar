@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   enumerize :role, in: [:user, :admin], default: :user
+
+  has_many :user_calendars
 end
