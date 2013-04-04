@@ -16,7 +16,11 @@ class Ability
   end
 
   def admin
+    can :access, :rails_admin
+    can :dashboard
     can :manage, UserCalendar
+    can :manage, Period
+    can :manage, PaymentNotification
   end
 
   def guest

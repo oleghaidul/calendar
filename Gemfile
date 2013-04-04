@@ -11,6 +11,7 @@ gem "cancan"
 gem 'devise'
 gem 'enumerize'
 gem 'nested_form'
+gem 'rails_admin'
 gem 'responders'
 gem 'simple_form'
 gem "simple-navigation"
