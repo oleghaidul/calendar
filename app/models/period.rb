@@ -13,8 +13,10 @@ class Period < ActiveRecord::Base
   private
 
     def check_intersection
-      overlap = user_calendar.periods.where { (end_date > my{start_date}) & (start_date < my{start_date}) }
-      errors.add(:base, "Date range overlaps with these events: #{overlap.map { |o| o.start_date..o.end_date }.join(', ')}") if overlap.size > 0
+      if user_calendar
+        overlap = user_calendar.periods.where { (end_date > my{start_date}) & (start_date < my{start_date}) }
+        errors.add(:base, "Date range overlaps with these events: #{overlap.map { |o| o.start_date..o.end_date }.join(', ')}") if overlap.size > 0
+      end
     end
 
     def end_date_before_start_date
