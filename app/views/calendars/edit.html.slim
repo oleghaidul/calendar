@@ -23,7 +23,7 @@
       h4 Your calendar is not activated
       = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar), payment_notifications_url)
 
-    - @calendar.calendar_colors.each do |color|
+    - @colors.each do |color|
       span.colors
         = "#{color.color_name} - "
         span.color style="background-color: #{color.color_hash}"

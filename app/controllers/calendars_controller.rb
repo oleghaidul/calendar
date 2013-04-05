@@ -11,6 +11,10 @@ class CalendarsController < ApplicationController
     @periods = @calendar.periods.build
   end
 
+  def edit
+    @colors = @calendar.periods_colors
+  end
+
   def show
   end
 

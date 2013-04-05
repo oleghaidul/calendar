@@ -143,7 +143,7 @@ $ ->
     showSpeed: 200
     hideSpeed: 200
     onSelect: (color) ->
-      $('#calendar_color_color_hash').val(color)
+      $('#calendar_color').val(color)
 
   $('.calendar_color').wColorPicker
     initColor: $('.header').css('backgroundColor')
