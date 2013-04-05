@@ -23,6 +23,8 @@ gem "twitter-bootstrap-rails"
 gem 'later_dude', :git => 'git://github.com/oleghaidul/later_dude.git'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-colorpicker-rails'
+gem 'wcolorpicker-rails'
+gem 'country_select'
 
 # Gems used only for assets and not required
 # in production environments by default.

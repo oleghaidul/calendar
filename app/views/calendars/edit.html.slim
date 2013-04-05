@@ -1,25 +1,29 @@
-.span10.offset1
+.span2
+  = link_to "Calendar color settings", calendar_calendar_colors_path(@calendar)
+.span10.offset2
   = simple_form_for @calendar, html: {class: 'form-horizontal'}, wrapper: :default, as: :calendar, url: calendar_path(@calendar) do |f|
     = f.input :name, input_html: {class: 'input-medium'}
     = f.input :active
-    = f.input :color, input_html: {class: 'input-mini'}
+    = content_tag(:div, 'Color', class: 'calendar-color', style: 'float:left;padding-bottom: 5px;') do
+      = content_tag(:span, 'Color', class: 'calendar_color_span')
+    = f.input :color, as: :hidden
 
     = f.submit 'Update Calendar', class: 'btn btn-success'
   .clearfix
 
 .span8.content.offset2
   .ability data-editable="true" data-calendar-id="#{@calendar.id}"
-  - if @calendar.paid?
-    .calendar-wrapper
-      - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
-        = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a, color: @calendar.color)
+    - if @calendar.paid?
+      .calendar-wrapper
+        - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
+          = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a, color: @calendar.color)
 
-    #calendar
-  - else
-    h4 Your calendar is not activated
-    = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar), payment_notifications_url)
+      #calendar
+    - else
+      h4 Your calendar is not activated
+      = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar), payment_notifications_url)
 
-  - @colors.each do |color|
-    span.colors
-      = "#{color.first} - "
-      span.color style="background-color: #{color.last}"
+    - @calendar.calendar_colors.each do |color|
+      span.colors
+        = "#{color.color_name} - "
+        span.color style="background-color: #{color.color_hash}"

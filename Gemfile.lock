@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/oleghaidul/later_dude.git
-  revision: 267af17de87a02ad1fd994705b4d127e6339b437
+  revision: f9b450f05bf861912b72cc7b6134b5f62892be3e
   specs:
     later_dude (0.3.1)
       rails (>= 2.3)
@@ -59,6 +59,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     commonjs (0.2.6)
+    country_select (1.1.3)
     debug_inspector (0.0.2)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
@@ -216,6 +217,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    wcolorpicker-rails (1.3.4)
 
 PLATFORMS
   ruby
@@ -227,6 +229,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   cancan
   coffee-rails (~> 3.2.1)
+  country_select
   devise
   enumerize
   jquery-rails
@@ -248,3 +251,4 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  wcolorpicker-rails

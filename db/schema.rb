@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404162639) do
+ActiveRecord::Schema.define(:version => 20130405180610) do
+
+  create_table "calendar_colors", :force => true do |t|
+    t.string   "color_name"
+    t.string   "color_hash"
+    t.integer  "user_calendar_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "payment_notifications", :force => true do |t|
     t.text     "params"
@@ -29,10 +37,23 @@ ActiveRecord::Schema.define(:version => 20130404162639) do
     t.string   "period_type"
     t.text     "info"
     t.text     "note"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-    t.string   "color",            :default => "#ff0000"
-    t.string   "color_name",       :default => "Default"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "color",             :default => "#ff0000"
+    t.string   "color_name",        :default => "Default"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "adult_guests"
+    t.string   "children_guests"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "country"
+    t.string   "city"
+    t.string   "state"
+    t.string   "post_code"
+    t.integer  "calendar_color_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

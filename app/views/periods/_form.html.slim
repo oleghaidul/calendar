@@ -1,11 +1,23 @@
 .popover-form
   = simple_form_for @period, html: {class: 'form-horizontal'} do |f|
-    = f.input :period_type
-    = f.input :start_date, :as => :string, :input_html => {:class => "datepicker" }
-    = f.input :end_date, :as => :string, :input_html => {:class => "datepicker" }
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :start_date, :as => :string, label: 'Check In', :input_html => {:class => "datepicker input-small" }
+    = f.input :end_date, :as => :string, label: 'Check Out', :input_html => {:class => "datepicker input-small" }
+    .guests
+      = f.input :adult_guests, collection: 11.times.inject([]) { |a,i| a << "Adult #{i+1}"}, label: "Guests", input_html: {class: 'input-small'}, wrapper: false
+      = f.input :children_guests, collection: 11.times.inject([]) { |a,i| a << "Children #{i+1}"}, label: false, input_html: {class: 'input-small'}, wrapper: false
+    .clearfix
+    = f.association :calendar_color
+    = f.input :email, label: 'Email Address'
+    = f.input :phone
+    = f.input :address1, label: 'Address 1'
+    = f.input :address2, label: 'Address 2'
+    = f.input :country
+    = f.input :city
+    = f.input :state
+    = f.input :post_code, label: 'Postal Code'
     .show_more_fields
-      = f.input :color, :input_html => {class: 'cp1 input-mini' }
-      = f.input :color_name
       = f.input :info, :input_html => {:rows => 2 }
       = f.input :note, :input_html => {:rows => 2 }
     = f.input :user_calendar_id, as: :hidden, input_html: {value: @calendar.id}

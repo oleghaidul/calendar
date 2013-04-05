@@ -14,10 +14,6 @@ class CalendarsController < ApplicationController
   def show
   end
 
-  def edit
-    @colors = @calendar.periods.order { created_at }.collect { |p| [p.color_name, p.color] }.uniq
-  end
-
   def create
     @calendar.attributes = params[:calendar]
     if @calendar.save
@@ -39,5 +35,9 @@ class CalendarsController < ApplicationController
     else
       redirect_to edit_calendar_url(@calendar), notice: "Invalid payment identifier"
     end
+  end
+
+  def list
+    @calendars = @calendars.where(paid: true)
   end
 end

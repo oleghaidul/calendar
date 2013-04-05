@@ -1,0 +1,8 @@
+= link_to "Create new color", new_calendar_calendar_color_path(@calendar)
+
+table.table.table-hover
+    thead
+      th Color
+      th Name
+    tbody.calendar-colors
+      = render @calendar.calendar_colors

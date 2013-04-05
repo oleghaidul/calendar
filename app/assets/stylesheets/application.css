@@ -11,6 +11,7 @@
  *= require_self
  *= require bootstrap-datepicker
  *= require_tree .
+ *= require wcolorpicker
  */
  html, body, .container {
   height: 100%;
@@ -43,15 +44,15 @@ div.popover.left .arrow{
   width:165px;display:inline-block;*float:left;text-align:center;border-radius:3px;vertical-align:top
 }
 
-.calendar-wrapper .calendar{margin:0 10px 3px 0;border:1px solid #d3e1ef;overflow:hidden;min-height:185px;}
+.calendar-wrapper .calendar{margin:0 10px 3px 0;border:1px solid #d3e1ef;overflow:hidden;min-height:190px;}
 .calendar-wrapper .calendar *{font-family:Arial,Helvetica,sans-serif}
 .calendar-wrapper .calendar .header{border-bottom:1px solid #d3e1ef;background-color:#D5EBDA;height:auto;padding:1px 0;text-align:center;font-size:12px}
 .calendar-wrapper .calendar .day-headers{background-color:#f1f5f8;overflow:hidden}
 .calendar-wrapper .calendar .day-headers .day-header{line-height:15px;font-size:9px}
 .calendar-wrapper .calendar .day-headers .day-header span{color:#838383}
-.calendar-wrapper .calendar .day-header,.calendar-wrapper .calendar .cal-res,.calendar-wrapper .calendar .day{position:relative;width:14.28%;float:left;text-align:center}
+.calendar-wrapper .calendar .day-header,.calendar-wrapper .calendar .cal-res,.calendar-wrapper .calendar .day{position:relative;width:14.28%;float:left;text-align:center;line-height:24px}
 .calendar-wrapper .calendar .cal-res .day{width:100%}
-.calendar-wrapper .calendar .day span{cursor:pointer;position:absolute;left:0;top:0;width:100%;color:#818181;font-size:12px;line-height:24px}
+.calendar-wrapper .calendar .day span{cursor:pointer;position:absolute;left:0;top:0;width:100%;color:#818181;font-size:12px;line-height:22px}
 .calendar-wrapper .calendar .blocked span{color:#ccc}
 
 .content {
@@ -123,9 +124,8 @@ div.tabbable.tabs-below .nav-tabs li span:hover {
 
 /*show more*/
 
-table#index-table td {
-  margin: 0;
-  padding: 0px;
+div#index-table {
+
 }
 
 table p.day-name,  table p.day-number{
@@ -144,6 +144,41 @@ table p.month-name {
   padding: 2px;
   width: 100%;
   text-align: center;
+}
+
+div#month-name {
+  padding-top: 20px;
+  clear: both;
+}
+
+div#day-name {
+  margin-left: 140px;
+}
+
+div#day-name div {
+  float: left;
+  width: 30px;
+  text-align: center;
+}
+
+div#calendar-name {
+  clear: both;
+  float: left;
+  width: 100px;
+  margin-right: 40px;
+}
+
+div.calendar-days div.day{
+  float: left;
+  width: 30px;
+  text-align: center;
+}
+
+div.calendar-days div.day span {
+  width: 24px;
+  line-height: 24px;
+  display: block;
+  cursor: pointer;
 }
 
 .colorpicker-saturation {
@@ -242,6 +277,14 @@ span.colors .color {
   min-height: 15px;
 }
 
+.calendar_color_span {
+  margin-top: 4px;
+}
+
+.calendar_color, .calendar-color {
+  margin-top: 2px;
+}
+
 .hover {
   opacity: 0.9;
 }
@@ -250,8 +293,12 @@ span.colors .color {
   margin-left: 10px;
 }
 
+#edit_calendar  .control-label {
+  width: 100px;
+}
+
 #edit_calendar .calendar_name {
-  width: 360px;
+  width: 300px;
   float: left;
 }
 
@@ -281,6 +328,22 @@ span.colors .color {
   margin-left: 50px;
 }
 
-.btn {
+#edit_calendar .btn {
   margin-left: 30px;
+}
+
+._wColorPicker_buttonHolder {
+  margin-left: 10px;
+}
+
+div.popover-form .guests select{
+  float: left;
+}
+
+.control-group.select.optional.period_calendar_colors {
+  margin-top: 20px;
+}
+
+#period_children_guests {
+  margin-left: 15px;
 }

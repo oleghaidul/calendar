@@ -1,0 +1,4 @@
+tr
+  td= content_tag(:div, "&nbsp;".html_safe, style: "background-color:#{calendar_color.color_hash};width:50px;")
+  td= calendar_color.color_name
+  td=link_to "Destroy", calendar_calendar_color_path(@calendar, calendar_color), method: :delete, data: {confirm: "Are you sure?"}

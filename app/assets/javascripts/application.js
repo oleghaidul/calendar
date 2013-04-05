@@ -18,3 +18,4 @@
 //= require jquery-ui
 //= require bootstrap-datepicker
 //= require bootstrap-colorpicker
+//= require wcolorpicker

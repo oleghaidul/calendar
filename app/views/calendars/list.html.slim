@@ -1,19 +1,15 @@
 - if @calendars.any?
   - twelve_month.each do |value|
-    table.table.table-bordered#index-table
-      tr
-        td
-          p.month-name= value.split[2]
-      tr
-        td
+    div#index-table
+      div#month-name
+        p.month-name= value.split[2]
+      div#day-name
         - days_name_of_month(value.split[0].to_i, value.split[1].to_i).each do |day_name|
-          td
+          div
             p.day-name= day_name
       - @calendars.each do |calendar|
-        tr
-          td
+        .ability data-editable="true" data-calendar-id="#{calendar.id}"
+          div#calendar-name
             p.calendar-name
               = link_to calendar.name, edit_calendar_path(calendar)
-          - days_of_month(value.split[0].to_i, value.split[1].to_i).each do |day|
-            td.day
-              p.day-number= day
+          =calendar_index_for(value.split[0].to_i, value.split[1].to_i, periods: calendar.periods)

@@ -1,6 +1,8 @@
 class Period < ActiveRecord::Base
-  attr_accessible :user_calendar_id, :end_date, :info, :note, :period_type, :start_date, :color, :color_name
+  attr_accessible :user_calendar_id, :end_date, :info, :note, :period_type, :start_date, :color, :color_name, :first_name, :last_name, :adult_guests, :children_guests, :calendar_color_id, :email, :phone, :address1, :address2, :country, :city, :state, :post_code
   belongs_to :user_calendar
+
+  belongs_to :calendar_color
 
   validate :check_intersection
   validate :end_date_before_start_date
@@ -9,6 +11,10 @@ class Period < ActiveRecord::Base
   validates :end_date, presence: true, unless: proc { start_date.nil? }
 
   after_save :check_date_range
+
+  def color
+    calendar_color.try(:color_hash) || '#ff0000'
+  end
 
   def color_name
     read_attribute(:color_name) || 'Default'
