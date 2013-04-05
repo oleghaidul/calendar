@@ -9,6 +9,7 @@ class Period < ActiveRecord::Base
   validate :end_date_eq_start_date
   validates :start_date, presence: true, unless: proc { end_date.nil? }
   validates :end_date, presence: true, unless: proc { start_date.nil? }
+  validates :calendar_color, presence: true
 
   after_save :check_date_range
 

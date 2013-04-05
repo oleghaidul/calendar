@@ -8,7 +8,7 @@
       = f.input :adult_guests, collection: 11.times.inject([]) { |a,i| a << "Adult #{i+1}"}, label: "Guests", input_html: {class: 'input-small'}, wrapper: false
       = f.input :children_guests, collection: 11.times.inject([]) { |a,i| a << "Children #{i+1}"}, label: false, input_html: {class: 'input-small'}, wrapper: false
     .clearfix
-    = f.association :calendar_color
+    = f.association :calendar_color, collection: @period.user_calendar.calendar_colors
     = f.input :email, label: 'Email Address'
     = f.input :phone
     = f.input :address1, label: 'Address 1'

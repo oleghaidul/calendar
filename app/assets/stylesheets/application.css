@@ -340,7 +340,7 @@ div.popover-form .guests select{
   float: left;
 }
 
-.control-group.select.optional.period_calendar_colors {
+#period_calendar_color_id {
   margin-top: 20px;
 }
 
