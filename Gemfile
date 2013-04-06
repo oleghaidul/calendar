@@ -8,8 +8,11 @@ gem 'rails', '3.2.13'
 gem 'pg'
 
 gem "cancan"
+gem "carrierwave"
+gem "ckeditor"
 gem 'devise'
 gem 'enumerize'
+gem "mini_magick"
 gem 'nested_form'
 gem 'rails_admin'
 gem 'responders'
@@ -25,6 +28,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-colorpicker-rails'
 gem 'wcolorpicker-rails'
 gem 'country_select'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

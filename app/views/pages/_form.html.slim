@@ -1,0 +1,5 @@
+= simple_form_for @page do |f|
+  = f.input :kind
+  = f.input :body, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
+  = f.submit

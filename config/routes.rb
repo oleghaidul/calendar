@@ -1,4 +1,6 @@
 Calendar::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
 
@@ -10,6 +12,8 @@ Calendar::Application.routes.draw do
   match '/:id' => 'calendars#show', as: :public_calendar, constraints: { id: /\d/ }
   resources :periods
   resources :payment_notifications
+  resources :pages
+  match '/contact_us' => 'home#contact_us', as: :contact_us
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

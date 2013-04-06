@@ -1,5 +1,8 @@
 $ ->
 
+  $('.test').hover ->
+    $(@).tooltip()
+
   if $('.ability').data('editable')
     $('.day').click ->
       calendar_id = $(@).closest('.ability').data('calendar-id')
@@ -135,6 +138,10 @@ $ ->
     $(".day[data-period-id^='[#{period_id}']").toggleClass('hover')
     $(".day[data-period-id=#{period_id}][data-status=start]").toggleClass('hover all')
     $(".day[data-period-id=#{period_id}][data-status=between]").toggleClass('hover all')
+    if ! $(@).hasClass("blank")
+      $(@).tooltip()
+  # $(".day").mouseleave ->
+  #   $(@).popover("destroy")
 
   $('.calendar-color').wColorPicker
     initColor: $('.header').css('backgroundColor')

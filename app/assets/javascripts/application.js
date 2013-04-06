@@ -19,3 +19,4 @@
 //= require bootstrap-datepicker
 //= require bootstrap-colorpicker
 //= require wcolorpicker
+//= require ckeditor/init

@@ -16,6 +16,7 @@ class CalendarsController < ApplicationController
   end
 
   def show
+    @current_year = params[:year] || DateTime.now.year
   end
 
   def create

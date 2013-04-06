@@ -124,10 +124,6 @@ div.tabbable.tabs-below .nav-tabs li span:hover {
 
 /*show more*/
 
-div#index-table {
-
-}
-
 table p.day-name,  table p.day-number{
   width: 25px;
   font-size: 10px;
@@ -144,41 +140,6 @@ table p.month-name {
   padding: 2px;
   width: 100%;
   text-align: center;
-}
-
-div#month-name {
-  padding-top: 20px;
-  clear: both;
-}
-
-div#day-name {
-  margin-left: 140px;
-}
-
-div#day-name div {
-  float: left;
-  width: 30px;
-  text-align: center;
-}
-
-div#calendar-name {
-  clear: both;
-  float: left;
-  width: 100px;
-  margin-right: 40px;
-}
-
-div.calendar-days div.day{
-  float: left;
-  width: 30px;
-  text-align: center;
-}
-
-div.calendar-days div.day span {
-  width: 24px;
-  line-height: 24px;
-  display: block;
-  cursor: pointer;
 }
 
 .colorpicker-saturation {
@@ -347,4 +308,45 @@ div.popover-form .guests select{
 #period_children_guests {
   margin-left: 15px;
   width: 110px;
+}
+
+.container.clear {
+  width:750px;
+}
+
+.iframe-link {
+  color: silver;
+}
+
+.button.pilltab.icon {
+  padding: 15px 16px 16px 16px;
+  vertical-align: middle;
+  background: white;
+  /* Old browsers */
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNmMWY2ZjgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMWY2ZjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(50%, #f1f6f8), color-stop(100%, #f1f6f8));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #f1f6f8 50%, #f1f6f8 100%);
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #f1f6f8 50%, #f1f6f8 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #f1f6f8 50%, #f1f6f8 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #f1f6f8 50%, #f1f6f8 100%);
+  background: linear-gradient(top, #ffffff 0%, #ffffff 50%, #f1f6f8 50%, #f1f6f8 100%);
+}
+
+table#index-table td span {
+  width: 29px;
+  display: block;
+  height: 29px;
+}
+
+table#index-table td {
+  padding: 0;
+  text-align: center;
+}
+
+#index-table td.calendar-name {
+  width: 200px;
+}
+
+.calendar-name p {
+  word-wrap: break-word;
 }

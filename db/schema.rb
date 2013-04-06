@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405180610) do
+ActiveRecord::Schema.define(:version => 20130406161248) do
 
   create_table "calendar_colors", :force => true do |t|
     t.string   "color_name"
@@ -19,6 +19,30 @@ ActiveRecord::Schema.define(:version => 20130405180610) do
     t.integer  "user_calendar_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "pages", :force => true do |t|
+    t.string   "kind"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "payment_notifications", :force => true do |t|
@@ -54,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130405180610) do
     t.string   "state"
     t.string   "post_code"
     t.integer  "calendar_color_id"
+    t.integer  "price"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

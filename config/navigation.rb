@@ -5,10 +5,12 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :edit_profile, 'Edit Profile', edit_user_registration_path
       primary.item :calendars, 'My calendars', calendars_path, highlights_on: proc { (@calendars || @calendar) && action_name != 'list' }
       primary.item :calendars_list, 'Calendars list', list_calendars_path, highlights_on: proc { (@calendars || @calendar) && action_name == 'list' }
+      primary.item :pages, 'Pages', pages_path, highlights_on: proc { @pages || @page } if can? :manage, Page
     else
       primary.item :login, 'Sign In', new_user_session_path
       primary.item :sign_up, 'Sign Up', new_user_registration_path
     end
+    primary.item :contact_us, 'Contact Us', contact_us_path
     primary.dom_class = 'nav'
   end
 end

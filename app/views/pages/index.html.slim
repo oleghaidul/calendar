@@ -1,0 +1,20 @@
+= link_to 'Create Page', new_page_path
+
+- if @pages.any?
+  table.table.table-hover
+    thead
+      th Page kind
+      th Actions
+    tbody
+      - @pages.each do |page|
+        tr
+          td= link_to page.kind, page
+          td
+            = link_to 'Edit', [:edit, page], class: 'btn btn-info'
+            '
+            = link_to 'Destroy', page, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+
+
+- else
+  p Pages not found

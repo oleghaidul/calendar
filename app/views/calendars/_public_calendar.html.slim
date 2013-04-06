@@ -1,0 +1,13 @@
+.pull-left
+  h4 style="margin-left: 365px;"= @current_year
+.pull-right
+  .btn-group
+    = link_to '<', public_calendar_path(@calendar, year: @current_year.to_i - 1), remote: true, class: 'btn'
+    = link_to 'Today', public_calendar_path(@calendar, year: Date.today.year), remote: true, class: 'btn'
+    = link_to '>', public_calendar_path(@calendar, year: @current_year.to_i + 1), remote: true, class: 'btn'
+.clearfix
+.calendar-wrapper
+  br
+  - diff = year.to_i - Date.today.year
+  - ((Date.today + diff.year).to_date..11.month.since((Date.today + diff.year))).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
+    = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a)

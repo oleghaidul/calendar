@@ -23,9 +23,11 @@ class Ability
     can :manage, Period
     can :manage, PaymentNotification
     can :manage, CalendarColor
+    can :manage, Page
   end
 
   def guest
+    can :read, UserCalendar
   end
 
   def member

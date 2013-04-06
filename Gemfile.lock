@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/oleghaidul/later_dude.git
-  revision: f9b450f05bf861912b72cc7b6134b5f62892be3e
+  revision: 48b28049a8e38925806522bdbb6e3efade2e3eed
   specs:
     later_dude (0.3.1)
       rails (>= 2.3)
@@ -50,6 +50,12 @@ GEM
       sass (~> 3.2)
     builder (3.0.4)
     cancan (1.6.9)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -104,6 +110,8 @@ GEM
       railties
     method_source (0.8.1)
     mime-types (1.22)
+    mini_magick (3.5.0)
+      subexec (~> 0.2.1)
     multi_json (1.7.2)
     nested_form (0.3.1)
     nokogiri (1.5.9)
@@ -198,6 +206,7 @@ GEM
       activerecord (~> 3.0)
       activesupport (~> 3.0)
       polyamorous (~> 0.5.0)
+    subexec (0.2.2)
     temple (0.5.5)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
@@ -228,6 +237,8 @@ DEPENDENCIES
   bootstrap-colorpicker-rails
   bootstrap-datepicker-rails
   cancan
+  carrierwave
+  ckeditor
   coffee-rails (~> 3.2.1)
   country_select
   devise
@@ -236,6 +247,7 @@ DEPENDENCIES
   later_dude!
   less-rails
   meta_request
+  mini_magick
   nested_form
   pg
   pry-rails
