@@ -297,17 +297,22 @@ span.colors .color {
   margin-left: 10px;
 }
 
-div.popover-form .guests select{
+div.popover-form .guests select, div.popover-form .guests input{
   float: left;
 }
 
-.period_calendar_color {
+.period_calendar_color, .guests.end-date, .period_price {
   margin-top: 20px;
 }
 
 #period_children_guests {
   margin-left: 15px;
   width: 110px;
+}
+
+#period_start_time, #period_end_time {
+  margin-left: 15px;
+  width: 100px;
 }
 
 .container.clear {

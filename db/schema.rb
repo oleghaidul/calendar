@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406161248) do
+ActiveRecord::Schema.define(:version => 20130406161249) do
 
   create_table "calendar_colors", :force => true do |t|
     t.string   "color_name"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(:version => 20130406161248) do
     t.string   "post_code"
     t.integer  "calendar_color_id"
     t.integer  "price"
+    t.string   "start_time"
+    t.string   "end_time"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

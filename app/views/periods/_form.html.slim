@@ -2,8 +2,14 @@
   = simple_form_for @period, html: {class: 'form-horizontal'} do |f|
     = f.input :first_name
     = f.input :last_name
-    = f.input :start_date, :as => :string, label: 'Check In', :input_html => {:class => "datepicker input-small" }
-    = f.input :end_date, :as => :string, label: 'Check Out', :input_html => {:class => "datepicker input-small" }
+    .guests
+      = f.input :start_date, :as => :string, label: 'Check In', :input_html => {:class => "datepicker input-small" }, wrapper: false
+      = f.input :start_time, as: :select, collection: time_generator, wrapper: false, input_html: {class: 'input-mini'}, label: false, include_blank: false
+    .clearfix
+    .guests.end-date
+      = f.input :end_date, :as => :string, label: 'Check Out', :input_html => {:class => "datepicker input-small" }, wrapper: false
+      = f.input :end_time, as: :select, collection: time_generator, wrapper: false, input_html: {class: 'input-mini'}, label: false, include_blank: false
+    .clearfix
     = f.input :price
     .guests
       = f.input :adult_guests, collection: 11.times.inject([]) { |a,i| a << "#{i} Adult"}, label: "Guests", input_html: {class: 'input-small'}, wrapper: false, include_blank: false
