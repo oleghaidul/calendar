@@ -43,6 +43,6 @@ class CalendarsController < ApplicationController
   end
 
   def list
-    @calendars = @calendars.where(paid: true)
+    @calendars = @calendars.where { paid == true }
   end
 end
