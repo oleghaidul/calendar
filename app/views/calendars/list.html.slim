@@ -13,4 +13,4 @@
         tr
           td.calendar-name
             p= link_to calendar.name, edit_calendar_path(calendar)
-          =calendar_index_for(value.split[0].to_i, value.split[1].to_i, periods: calendar.periods)
+          =calendar_index_for(value.split[0].to_i, value.split[1].to_i, periods: calendar.periods, price_periods: calendar.price_periods)

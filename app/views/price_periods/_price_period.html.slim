@@ -1,0 +1,9 @@
+tr id="#{price_period.id}"
+  td= price_period.start_date
+  td= price_period.end_date
+  td= price_period.currency_name
+  td= price_period.per_night
+  td
+    = link_to content_tag(:i, '', class: 'icon-pencil'), edit_calendar_price_period_path(@calendar, price_period), remote: true
+    '
+    = link_to content_tag(:i, '', class: 'icon-remove'), calendar_price_period_path(@calendar, price_period), method: :delete, data: {confirm: 'Are you sure?'}, remote: true

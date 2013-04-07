@@ -4,9 +4,10 @@ class Period < ActiveRecord::Base
 
   belongs_to :calendar_color
 
-  validate :check_intersection
+  # validate :check_intersection
   validate :end_date_before_start_date
   validate :end_date_eq_start_date
+  validates :start_date, :end_date, :overlap => {:exclude_edges => ["start_date", "end_date"], :scope => "user_calendar_id"}
   validates :start_date, presence: true, unless: proc { end_date.nil? }
   validates :end_date, presence: true, unless: proc { start_date.nil? }
   validates :calendar_color, presence: true
@@ -19,6 +20,14 @@ class Period < ActiveRecord::Base
 
   def color_name
     read_attribute(:color_name) || 'Default'
+  end
+
+  def start_date=(date)
+    self.send(:write_attribute, :start_date, date.to_date)
+  end
+
+  def end_date=(date)
+    self.send(:write_attribute, :end_date, date.to_date)
   end
 
   private

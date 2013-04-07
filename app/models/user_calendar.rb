@@ -3,7 +3,10 @@ class UserCalendar < ActiveRecord::Base
 
   has_many :periods, foreign_key: :user_calendar_id
   has_many :calendar_colors
-  has_many :periods_colors, through: :periods, source: :calendar_color
+  has_many :periods_colors, through: :periods, source: :calendar_color, uniq: true
+
+  has_many :price_periods
+
   accepts_nested_attributes_for :periods
   validates :name, presence: true
   belongs_to :user

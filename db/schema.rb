@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406161249) do
+ActiveRecord::Schema.define(:version => 20130407090556) do
 
   create_table "calendar_colors", :force => true do |t|
     t.string   "color_name"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20130406161249) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "currencies", :force => true do |t|
+    t.string   "country_name"
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "kind"
@@ -81,6 +88,17 @@ ActiveRecord::Schema.define(:version => 20130406161249) do
     t.integer  "price"
     t.string   "start_time"
     t.string   "end_time"
+  end
+
+  create_table "price_periods", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "per_night"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "currency"
+    t.integer  "user_calendar_id"
+    t.integer  "currency_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

@@ -1,2 +1,3 @@
 $('.public_calendars').html('<%=j render "public_calendar", year: @current_year.to_i %>')
 $('.public_calendars .day').colorize()
+$('.public_calendars .day').show_popover()

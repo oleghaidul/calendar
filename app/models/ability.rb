@@ -14,6 +14,7 @@ class Ability
     can :manage, UserCalendar, user_id: @user.id
     can :manage, Period
     can :manage, CalendarColor
+    can :manage, PricePeriod
   end
 
   def admin
@@ -24,6 +25,7 @@ class Ability
     can :manage, PaymentNotification
     can :manage, CalendarColor
     can :manage, Page
+    can :manage, PricePeriod
   end
 
   def guest

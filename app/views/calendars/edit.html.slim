@@ -1,5 +1,7 @@
-.span2
+.pull-left
   = link_to "Calendar color settings", calendar_calendar_colors_path(@calendar)
+  br
+  = link_to "Add pricing", new_calendar_price_period_path(@calendar), remote: true
 .span10.offset2
   = simple_form_for @calendar, html: {class: 'form-horizontal'}, wrapper: :default, as: :calendar, url: calendar_path(@calendar) do |f|
     = f.input :name, input_html: {class: 'input-medium'}
@@ -14,19 +16,13 @@
 .span8.content.offset2
   .ability data-editable="true" data-calendar-id="#{@calendar.id}"
     - if @calendar.paid?
-      .calendar-wrapper
-        - (Date.today.to_date..11.month.since(Date.today)).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
-          = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a, color: @calendar.color)
+      .clearfix
+      .public_calendars= render 'public_calendar', year: @current_year
 
       #calendar
     - else
       h4 Your calendar is not activated
       = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar), payment_notifications_url)
-
-    - @colors.each do |color|
-      span.colors
-        = "#{color.color_name} - "
-        span.color style="background-color: #{color.color_hash}"
 
 - if @calendar.paid?
   .span8.offset2
@@ -38,3 +34,21 @@
     | All you have to is copy/paste exactly this code in your html:
     p.iframe-link
       = "<IFRAME SRC=#{AppConfig.host}/#{@calendar.id} TITLE='eCalendar' height='820' width='770' SCROLLING='no' frameborder='0' allowTransparency='true' STYLE='background-color:#F7F5F5'></IFRAME><br><a href=#{AppConfig.host}/#{@calendar.id} style='text-decoration:none;'><font size='1' color='#C0C0C0' face='arial'>Free availability calendar</font></a>"
+
+#new_price_period.modal.hide.fade aria-hidden="true" aria-labelledby="newCalendarLabel" role="dialog" tabindex="-1"
+  .modal-header
+    button.close aria-hidden="true" data-dismiss="modal" type="button" ×
+    h3#myModalLabel Add pricing
+  .modal-body
+    .errors
+    .price-periods-form
+    - if @price_periods.any?
+      table.table.table-hover
+        thead
+          th Start Date
+          th End Date
+          th Currency
+          th Per Night
+          th Actions
+        tbody
+          = render @price_periods

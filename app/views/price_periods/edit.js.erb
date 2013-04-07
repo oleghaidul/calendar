@@ -1,0 +1,7 @@
+$('#new_price_period .modal-body .price-periods-form').html('<%=j render "form" %>')
+$('[class~=datepicker]').datepicker({
+  "autoclose": true,
+  format: 'dd-mm-yyyy'
+});
+$('#price_period_currency_id').currency_edit();
+$('#new_price_period .modal-body .errors').html('')

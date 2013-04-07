@@ -28,6 +28,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-colorpicker-rails'
 gem 'wcolorpicker-rails'
 gem 'country_select'
+gem 'validates_overlap'
 
 
 # Gems used only for assets and not required

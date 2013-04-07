@@ -13,9 +13,12 @@ class CalendarsController < ApplicationController
 
   def edit
     @colors = @calendar.periods_colors
+    @current_year = params[:year] || DateTime.now.year
+    @price_periods = @calendar.price_periods
   end
 
   def show
+    @colors = @calendar.periods_colors
     @current_year = params[:year] || DateTime.now.year
   end
 

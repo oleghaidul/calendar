@@ -1,0 +1,5 @@
+<% if @price_period.errors.any? %>
+  $('#new_price_period .modal-body .errors').html('<div class="alert"><%= @price_period.errors.full_messages.join(", ") %></div>')
+<% else %>
+  $('#new_price_period .modal-body table tbody').html('<%=j render @price_periods %>')
+<% end %>

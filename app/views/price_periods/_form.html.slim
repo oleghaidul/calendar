@@ -1,0 +1,7 @@
+- url = @price_period.persisted? ? calendar_price_period_url(@calendar, @price_period) : calendar_price_periods_url(@calendar)
+= simple_form_for [@calendar, @price_period], url: url, remote: true do |f|
+  = f.input :start_date, :as => :string, :input_html => {:class => "datepicker input-small", value: @price_period.start_date.try(:strftime, "%d-%m-%Y")}
+  = f.input :end_date, :as => :string, :input_html => {:class => "datepicker input-small", value: @price_period.end_date.try(:strftime, "%d-%m-%Y")}
+  = f.input :per_night, as: :currency, wrapper: :prepend
+
+  = f.submit class: 'btn btn-success'

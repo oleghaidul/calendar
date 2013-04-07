@@ -52,8 +52,10 @@ div.popover.left .arrow{
 .calendar-wrapper .calendar .day-headers .day-header span{color:#838383}
 .calendar-wrapper .calendar .day-header,.calendar-wrapper .calendar .cal-res,.calendar-wrapper .calendar .day{position:relative;width:14.28%;float:left;text-align:center;line-height:24px}
 .calendar-wrapper .calendar .cal-res .day{width:100%}
-.calendar-wrapper .calendar .day span{cursor:pointer;position:absolute;left:0;top:0;width:100%;color:#818181;font-size:12px;line-height:22px}
+.calendar-wrapper .calendar .day span{cursor:pointer;position:absolute;left:0;top:0;width:100%;color:#000;font-size:12px;line-height:22px}
 .calendar-wrapper .calendar .blocked span{color:#ccc}
+td.day span {color:#000;}
+td.day {font-weight: normal !important;}
 
 .content {
   max-width: 750px;
@@ -354,4 +356,39 @@ table#index-table td {
 
 .calendar-name p {
   word-wrap: break-word;
+}
+
+.periods-colors.pull-left {
+  margin-left: 40px;
+}
+
+.margin-right {
+  margin-right: 55px;
+}
+
+span.add-on {
+  cursor: pointer;
+}
+
+div.price_period {
+  position: absolute;
+  display: none;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #5bb75b;
+  background-image: -moz-linear-gradient(top, #62c462, #51a351);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+  background-image: -o-linear-gradient(top, #62c462, #51a351);
+  background-image: linear-gradient(to bottom, #62c462, #51a351);
+  width: 160px;
+  text-align: center;
+  z-index: 9999;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+
+td.day {
+  cursor: pointer;
 }
