@@ -10,7 +10,6 @@
       = f.input :end_date, :as => :string, label: 'Check Out', :input_html => {:class => "datepicker input-small" }, wrapper: false
       = f.input :end_time, as: :select, collection: time_generator, wrapper: false, input_html: {class: 'input-mini'}, label: false, include_blank: false
     .clearfix
-    = f.input :price
     .guests
       = f.input :adult_guests, collection: 11.times.inject([]) { |a,i| a << "#{i} Adult"}, label: "Guests", input_html: {class: 'input-small'}, wrapper: false, include_blank: false
       = f.input :children_guests, collection: 11.times.inject([]) { |a,i| a << "#{i} Children"}, label: false, input_html: {class: 'input-small'}, wrapper: false, include_blank: false
@@ -26,7 +25,6 @@
       = f.input :state
       = f.input :post_code, label: 'Postal Code'
       = f.input :info, :input_html => {:rows => 2 }
-      = f.input :note, :input_html => {:rows => 2 }
     = f.input :user_calendar_id, as: :hidden, input_html: {value: @calendar.id}
     .tabbable.tabs-below
       ul.nav.nav-tabs
