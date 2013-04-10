@@ -50,6 +50,14 @@ GEM
       sass (~> 3.2)
     builder (3.0.4)
     cancan (1.6.9)
+    capistrano (2.14.2)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    capistrano-deploy (0.3.2)
+      capistrano (~> 2.9)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -82,6 +90,7 @@ GEM
       sass-rails (>= 3.1.1)
     haml (4.0.1)
       tilt
+    highline (1.6.16)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -95,6 +104,7 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kgio (2.8.0)
     less (2.3.1)
       commonjs (~> 0.2.6)
     less-rails (2.3.2)
@@ -114,6 +124,13 @@ GEM
       subexec (~> 0.2.1)
     multi_json (1.7.2)
     nested_form (0.3.1)
+    net-scp (1.1.0)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.6)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
     pg (0.15.0)
@@ -168,6 +185,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
+    raindrops (0.10.0)
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -224,6 +242,10 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    unicorn (4.6.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     validates_overlap (0.1.2)
       rails (>= 3.0.0)
     warden (1.2.1)
@@ -239,6 +261,7 @@ DEPENDENCIES
   bootstrap-colorpicker-rails
   bootstrap-datepicker-rails
   cancan
+  capistrano-deploy
   carrierwave
   ckeditor
   coffee-rails (~> 3.2.1)
@@ -265,5 +288,6 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  unicorn
   validates_overlap
   wcolorpicker-rails

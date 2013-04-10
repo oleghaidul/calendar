@@ -13,3 +13,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/.rvmrc
+
+# Ingone config files
+/config/unicorn.conf.rb
+
+/config/databese.yml
+/config/app_config.yml

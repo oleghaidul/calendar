@@ -50,6 +50,7 @@ group :test, :development do
 end
 
 group :development do
+  gem 'capistrano-deploy', :require => nil
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
@@ -62,7 +63,7 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
