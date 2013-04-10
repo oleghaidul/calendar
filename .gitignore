@@ -19,5 +19,5 @@
 # Ingone config files
 /config/unicorn.conf.rb
 
-/config/databese.yml
+/config/database.yml
 /config/app_config.yml
