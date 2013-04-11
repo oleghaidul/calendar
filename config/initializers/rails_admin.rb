@@ -16,6 +16,30 @@ RailsAdmin.config do |config|
 
   config.authorize_with :cancan
 
+  config.model User do
+    edit do
+      field :email, :string
+      field :password, :password         # Hidden
+      field :password_confirmation, :password         # Hidden
+      field :role, :enum do
+        enum do
+          User.role.options
+        end
+      end
+    end
+    create do
+      field :email, :string
+      field :password, :password         # Hidden
+      field :password_confirmation, :password         # Hidden
+      field :role, :enum do
+        enum do
+          User.role.options
+        end
+      end
+    end
+    update do; end
+  end
+
   # If you want to track changes on your models:
   # config.audit_with :history, 'User'
 
@@ -251,5 +275,7 @@ RailsAdmin.config do |config|
   #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
   #     # using `field` instead of `configure` will exclude all other fields and force the ordering
   # end
+
+
 
 end

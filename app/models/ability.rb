@@ -26,6 +26,7 @@ class Ability
     can :manage, CalendarColor
     can :manage, Page
     can :manage, PricePeriod
+    can :manage, User
   end
 
   def guest
