@@ -12,9 +12,15 @@ Calendar::Application.routes.draw do
   end
   match '/:id' => 'calendars#show', as: :public_calendar, constraints: { id: /\d/ }
   resources :periods
-  resources :payment_notifications
   resources :pages
   match '/contact_us' => 'home#contact_us', as: :contact_us
+
+  resources :payment_notifications, only: :create do
+    collection do
+      post :paypal_return
+      get :paypal_cancel
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

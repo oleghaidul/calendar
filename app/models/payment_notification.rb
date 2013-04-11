@@ -3,7 +3,7 @@ class PaymentNotification < ActiveRecord::Base
   serialize :params
   after_create :mark_calendar_as_purchased
 
-  attr_accessible :params, :user_calendar_id, :status, :transaction_id
+  attr_accessible :params, :user_calendar, :status, :transaction_id
 
 private
   def mark_calendar_as_purchased

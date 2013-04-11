@@ -21,8 +21,9 @@
 
       #calendar
     - else
-      h4 Your calendar is not activated
-      = link_to (image_tag 'btn_buynow_LG.gif'), @calendar.paypal_url(make_paid_calendar_url(@calendar), payment_notifications_url)
+      fieldset
+        legend Your calendar is not activated
+        = render 'paypal_form'
 
 - if @calendar.paid?
   .span8.offset2
