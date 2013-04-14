@@ -11,4 +11,4 @@ fieldset
           tr
             td= calendar.id
             td= link_to calendar.name, edit_calendar_path(calendar)
-            td= link_to "Your link", public_calendar_path(calendar)
+            td= link_to "Your link", public_calendar_path(calendar.id)
