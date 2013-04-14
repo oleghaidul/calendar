@@ -5,6 +5,7 @@ class CalendarsController < ApplicationController
   respond_to :js, only: :new
 
   def index
+    @calendars = current_user.user_calendars
   end
 
   def new
@@ -46,6 +47,7 @@ class CalendarsController < ApplicationController
   end
 
   def list
-    @calendars = @calendars.where { paid == true }
+    @calendars = current_user.user_calendars
+    @calendars = @calendars.where(paid: true)
   end
 end
