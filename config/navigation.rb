@@ -10,7 +10,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :login, 'Sign In', new_user_session_path
       primary.item :sign_up, 'Sign Up', new_user_registration_path
     end
-    primary.item :contact_us, 'Contact Us', contact_us_path
+    primary.item :contact_us, 'Contact Us', 'mailto:oleghaidul@gmail.com' if controller_name == 'home'
     primary.dom_class = 'nav'
   end
 end

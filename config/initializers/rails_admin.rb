@@ -40,6 +40,28 @@ RailsAdmin.config do |config|
     update do; end
   end
 
+  config.model Page do
+    edit do
+      field :kind, :enum do
+        enum do
+          Page.kind.options
+        end
+      end
+      field :title
+      field :body
+    end
+    create do
+      field :kind, :enum do
+        enum do
+          Page.kind.options
+        end
+      end
+      field :title
+      field :body
+    end
+    update do; end
+  end
+
   # If you want to track changes on your models:
   # config.audit_with :history, 'User'
 
