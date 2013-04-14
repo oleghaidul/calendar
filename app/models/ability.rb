@@ -15,6 +15,7 @@ class Ability
     can :manage, Period
     can :manage, CalendarColor
     can :manage, PricePeriod
+    can :read, UserCalendar
   end
 
   def admin

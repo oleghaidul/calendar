@@ -10,7 +10,7 @@ Calendar::Application.routes.draw do
     resources :calendar_colors
     resources :price_periods
   end
-  match '/:id' => 'calendars#show', as: :public_calendar, constraints: { id: /\d/ }
+  match '/:id' => 'calendars#show', as: :public_calendar, constraints: { id: /\d+/ }
   resources :periods
   resources :pages
   match '/contact_us' => 'home#contact_us', as: :contact_us
