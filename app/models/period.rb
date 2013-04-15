@@ -64,7 +64,7 @@ class Period < ActiveRecord::Base
       end
       @periods_start = Period.where{start_date > Date.today }.where{ start_date <= Date.today+1}
       @periods_start.each do |period_start|
-        if periods_start.user_calendar.user.email == "xx999xx@mail.ru" #test
+        if period_start.user_calendar.user.email == "xx999xx@mail.ru" #test
           Notifier.send_notification( period_start.user_calendar.user.email,
                                       period_start.user_calendar,
                                       true).deliver
