@@ -392,3 +392,7 @@ div.price_period {
 td.day {
   cursor: pointer;
 }
+
+div.guests {
+  margin-top: 19px;
+}

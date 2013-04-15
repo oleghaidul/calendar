@@ -6,6 +6,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :calendars, 'My calendars', calendars_path, highlights_on: proc { (@calendars || @calendar) && action_name != 'list' }
       primary.item :calendars_list, 'Calendars list', list_calendars_path, highlights_on: proc { (@calendars || @calendar) && action_name == 'list' }
       primary.item :pages, 'Pages', pages_path, highlights_on: proc { @pages || @page } if can? :manage, Page
+      primary.item :admin, 'Admin panel', rails_admin_path if can? :access, :rails_admin
     else
       primary.item :login, 'Sign In', new_user_session_path
       primary.item :sign_up, 'Sign Up', new_user_registration_path
