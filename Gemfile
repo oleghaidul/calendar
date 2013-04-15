@@ -30,7 +30,7 @@ gem 'bootstrap-colorpicker-rails'
 gem 'wcolorpicker-rails'
 gem 'country_select'
 gem 'validates_overlap'
-
+gem 'whenever', :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.

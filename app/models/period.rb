@@ -52,4 +52,14 @@ class Period < ActiveRecord::Base
     def check_date_range
       destroy if start_date.nil? && end_date.nil?
     end
+
+    def self.send_notification
+      @periods = Period.where{ end_date > Date.today}.where{ end_date <= Date.today+1}
+      @periods.each do |period|
+        Notifier.send_notification( period.user_calendar.user.email,
+                                    period.end_date.strftime("%d-%b-%Y"),
+                                    period.end_time,
+                                    period.user_calendar.name).deliver
+      end
+    end
 end
