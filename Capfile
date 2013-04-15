@@ -11,12 +11,12 @@ set :repository, 'git@github.com:oleghaidul/calendar.git'
 set(:deploy_to) { "/home/calendar/production" }
 
 after 'deploy:update', 'bundle:install', 'deploy:assets:precompile'
-after "deploy:symlink", "deploy:update_crontab"
 after 'deploy:restart', 'unicorn:stop'
+after "deploy:symlink", "deploy:update_crontab"
 
 namespace :deploy do
   desc "Update the crontab file"
   task :update_crontab, :roles => :db do
-    run "cd /home/calendar/production && whenever --update-crontab calendar"
+    run "cd production && whenever --update-crontab calendar"
   end
 end
