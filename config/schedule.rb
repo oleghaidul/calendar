@@ -19,10 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-# every 1.day, at: '12:01 am' do
-#   runner "Period.send_notification"
-# end
-
-every 30.minutes do
+every 1.day, at: '12:01 am' do
   runner "Period.send_notification"
 end
+
+# every 30.minutes do
+#   runner "Period.send_notification"
+# end
