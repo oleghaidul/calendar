@@ -10,7 +10,8 @@ set :repository, 'git@github.com:oleghaidul/calendar.git'
 
 set(:deploy_to) { "/home/calendar/production" }
 
-after 'deploy:update', 'bundle:install', 'deploy:assets:precompile', 'deploy:update_crontab'
+after 'deploy:update', 'bundle:install', 'deploy:assets:precompile'
+after "deploy:symlink", "deploy:update_crontab"
 after 'deploy:restart', 'unicorn:stop'
 
 namespace :deploy do
