@@ -1,5 +1,5 @@
 class PricePeriod < ActiveRecord::Base
-  attr_accessible :end_date, :per_night, :start_date, :currency_id
+  attr_accessible :end_date, :per_night, :start_date, :currency_id, :user_calendar_id
 
   validates :start_date, :end_date, :per_night, presence: true
   validates :start_date, :end_date, :overlap => {:scope => "user_calendar_id"}

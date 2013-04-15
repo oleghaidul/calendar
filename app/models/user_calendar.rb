@@ -1,11 +1,11 @@
 class UserCalendar < ActiveRecord::Base
-  attr_accessible :active, :name, :paid, :periods_attributes, :color
+  attr_accessible :active, :name, :paid, :periods_attributes, :color, :user_id
 
-  has_many :periods, foreign_key: :user_calendar_id
-  has_many :calendar_colors
-  has_many :periods_colors, through: :periods, source: :calendar_color, uniq: true
+  has_many :periods, foreign_key: :user_calendar_id, dependent: :destroy
+  has_many :calendar_colors, dependent: :destroy
+  has_many :periods_colors, through: :periods, source: :calendar_color, uniq: true, dependent: :destroy
 
-  has_many :price_periods
+  has_many :price_periods, dependent: :destroy
 
   accepts_nested_attributes_for :periods
   validates :name, presence: true

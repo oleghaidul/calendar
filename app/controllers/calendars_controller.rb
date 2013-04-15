@@ -19,13 +19,13 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    @calendar = UserCalendar.find(params[:id])
     @colors = @calendar.periods_colors
     @current_year = params[:year] || DateTime.now.year
   end
 
   def create
     @calendar.attributes = params[:calendar]
+    @calendar.update_attributes(user_id: current_user.id)
     if @calendar.save
       respond_with @calendar, location: edit_calendar_url(@calendar)
     else
