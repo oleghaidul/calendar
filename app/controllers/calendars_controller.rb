@@ -19,6 +19,7 @@ class CalendarsController < ApplicationController
   end
 
   def show
+    @calendar = UserCalendar.find(params[:id])
     @colors = @calendar.periods_colors
     @current_year = params[:year] || DateTime.now.year
   end
