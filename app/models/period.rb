@@ -58,7 +58,7 @@ class Period < ActiveRecord::Base
       @periods_end.each do |period|
         if period.user_calendar.user.email == "xx999xx@mail.ru" #test
           Notifier.send_notification( period.user_calendar.user.email,
-                                      period.user_calendar,
+                                      period.user_calendar.name,
                                       period,
                                       false).deliver
         end
