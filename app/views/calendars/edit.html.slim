@@ -30,11 +30,10 @@
     h5 ADD THIS CALENDAR TO YOUR OWN WEBSITE
 
     p
-      | If you have your own website you may add this calendar to it. It is a realtime calendar, so when you make a change to the calendar from your account on www.spain-holiday.com, it reflects immediatly on your own website.
-      | Note that you may change the background color to match your own website.
+      | You may add this real time calendar to your own website. When you make changes to the calendar from your account on www.eCalendar.asia, it changes immediatly on your own website.
     | All you have to is copy/paste exactly this code in your html:
     p.iframe-link
-      = "<IFRAME SRC=#{AppConfig.host}/#{@calendar.id} TITLE='eCalendar' height='820' width='770' SCROLLING='no' frameborder='0' allowTransparency='true' STYLE='background-color:#F7F5F5'></IFRAME><br><a href=#{AppConfig.host}/#{@calendar.id} style='text-decoration:none;'><font size='1' color='#C0C0C0' face='arial'>Free availability calendar</font></a>"
+      = "<IFRAME SRC=www.#{AppConfig.host}/#{@calendar.id} TITLE='eCalendar' height='820' width='770' SCROLLING='no' frameborder='0' allowTransparency='true' STYLE='background-color:#F7F5F5'></IFRAME><br><a href=http://#{AppConfig.host}/#{@calendar.id} style='text-decoration:none;'><font size='1' color='#C0C0C0' face='arial'>Free availability calendar</font></a>"
 
 #new_price_period.modal.hide.fade aria-hidden="true" aria-labelledby="newCalendarLabel" role="dialog" tabindex="-1"
   .modal-header

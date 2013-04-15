@@ -54,12 +54,21 @@ class Period < ActiveRecord::Base
     end
 
     def self.send_notification
-      @periods = Period.where{ end_date > Date.today}.where{ end_date <= Date.today+1}
-      @periods.each do |period|
-        Notifier.send_notification( period.user_calendar.user.email,
-                                    period.end_date.strftime("%d %b %Y"),
-                                    period.end_time,
-                                    period.user_calendar.name).deliver
+      @periods_end = Period.where{end_date > Date.today}.where{ end_date <= Date.today+1}
+      @periods_end.each do |period|
+        if period.user_calendar.user.email == "xx999xx@mail.ru" #test
+          Notifier.send_notification( period.user_calendar.user.email,
+                                      period.user_calendar,
+                                      false).deliver
+        end
+      end
+      @periods_start = Period.where{start_date > Date.today }.where{ start_date <= Date.today+1}
+      @periods_start.each do |period_start|
+        if periods_start.user_calendar.user.email == "xx999xx@mail.ru" #test
+          Notifier.send_notification( periods_start.user_calendar.user.email,
+                                      periods_start.user_calendar,
+                                      true).deliver
+        end
       end
     end
 end
