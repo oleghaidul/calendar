@@ -5,7 +5,6 @@ class CalendarsController < ApplicationController
   respond_to :js, only: :new
 
   def index
-    @calendars = current_user.user_calendars
   end
 
   def new
