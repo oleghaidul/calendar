@@ -5,7 +5,7 @@ class CalendarsController < ApplicationController
   respond_to :js, only: :new
 
   def index
-    @calendars = UserCalendar.paginate(page: params[:page])
+    @calendars = UserCalendar.page params[:page]
   end
 
   def new

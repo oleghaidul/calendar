@@ -1,9 +1,9 @@
 .pull-right
   = link_to 'Create new calendar', new_calendar_url, remote: true
 
-= will_paginate @calendars, per_page: 20, class: 'flickr_pagination'
+= paginate @calendars
 = render 'table'
-= will_paginate @calendars, per_page: 20, class: 'flickr_pagination'
+= paginate @calendars
 
 #new_calendar.modal.hide.fade aria-hidden="true" aria-labelledby="newCalendarLabel" role="dialog" tabindex="-1"
   .modal-header
