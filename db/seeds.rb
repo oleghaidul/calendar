@@ -218,6 +218,16 @@ array = [
       ["Zimbabwe  Zimbabwean - dollar (ZWD)", "ZWD"],
     ]
 
-array.each do |arr|
-  Currency.create!(country_name: arr.first, name: arr.last)
+# array.each do |arr|
+#   Currency.create!(country_name: arr.first, name: arr.last)
+# end
+
+User.create(email: 'calendar_test@mail.ru', password: "qweqweqwe", password_confirmation: 'qweqweqwe')
+(1..1000).each do |n|
+  UserCalendar.create(name: "test#{n}", active: true, paid: true, user_id: User.last.id)
+  CalendarColor.create(color_name: "booked", color_hash: "#ff0000")
+  CalendarColor.last.update_attribute(:user_calendar_id, UserCalendar.last.id)
+  Period.create(start_date: "2013-04-18".to_date, end_date: "2013-04-19".to_date, start_time: "12:00 AM", end_time: "12:00 am", user_calendar_id: UserCalendar.last.id, calendar_color_id: CalendarColor.last.id)
 end
+
+# UserCalendar.where(user_id: User.where(email: 'calendar_test@mail.ru').first.id).delete_all
