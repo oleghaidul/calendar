@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -13,4 +13,11 @@ class User < ActiveRecord::Base
   enumerize :role, in: [:user, :admin], default: :user
 
   has_many :user_calendars
+
+  after_create :send_mail
+
+  private
+    def send_mail
+      Notifier.user_registration_mail(self).deliver
+    end
 end

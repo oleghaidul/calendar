@@ -5,7 +5,7 @@ class CalendarsController < ApplicationController
   respond_to :js, only: :new
 
   def index
-    @calendars = UserCalendar.page params[:page]
+    @calendars = @calendars.page params[:page]
   end
 
   def new

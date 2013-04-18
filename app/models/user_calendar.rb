@@ -11,6 +11,8 @@ class UserCalendar < ActiveRecord::Base
   validates :name, presence: true
   belongs_to :user
 
+  after_create :create_notification
+
   def paypal_url(return_url, notify_url)
     return_hex = SecureRandom.hex(10)
     update_attribute(:return_hex, return_hex)
@@ -33,5 +35,11 @@ class UserCalendar < ActiveRecord::Base
 
   def make_paid
     update_attribute(:paid, true)
+    Notifier.calendar_payment(self).deliver
   end
+
+  private
+    def create_notification
+      Notifier.calendar_create(self).deliver
+    end
 end
