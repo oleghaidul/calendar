@@ -36,10 +36,12 @@ class UserCalendar < ActiveRecord::Base
   def make_paid
     update_attribute(:paid, true)
     Notifier.calendar_payment(self).deliver
+    Notifier.calendar_payment_user(self).deliver
   end
 
   private
     def create_notification
       Notifier.calendar_create(self).deliver
+      Notifier.calendar_create_user(self).deliver
     end
 end

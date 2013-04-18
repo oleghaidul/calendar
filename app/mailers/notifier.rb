@@ -32,16 +32,22 @@ class Notifier < ActionMailer::Base
   end
 
   def calendar_payment(calendar)
-    user_body = "Dear #{calendar.user.email}, thank you for payment calendar: #{calendar.name}"
-    mail to: calendar.user.email, subject: "Payment notification", body: user_body
     admin_body = "User #{calendar.user.email} has paid for #{calendar.name}"
     mail to: User.where(role: "admin").map(&:email), subject: "Payment notification", body: admin_body
   end
 
   def calendar_create(calendar)
-    user_body = "Dear #{calendar.user.email}, you have create a new calendar: #{calendar.name}"
-    mail to: calendar.user.email, subject: "Calendars notification", body: user_body
     admin_body = "User #{calendar.user.email} has create a new calendar: #{calendar.name}"
     mail to: User.where(role: "admin").map(&:email), subject: "Calendars notification", body: admin_body
+  end
+
+  def calendar_payment_user(calendar)
+    user_body = "Dear #{calendar.user.email}, thank you for payment calendar: #{calendar.name}"
+    mail to: calendar.user.email, subject: "Payment notification", body: user_body
+  end
+
+  def calendar_create_user(calendar)
+    user_body = "Dear #{calendar.user.email}, you have create a new calendar: #{calendar.name}"
+    mail to: calendar.user.email, subject: "Calendars notification", body: user_body
   end
 end
