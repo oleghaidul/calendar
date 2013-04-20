@@ -200,6 +200,8 @@ $ ->
   $('.day').mouseleave ->
     $('.price_period').hide()
 
+  default_color = $('#calendar_color_color_hash').val() || '#ff0000'
+
   $('.calendar-color').wColorPicker
     initColor: $('.header').css('backgroundColor')
     theme: "red"
@@ -210,7 +212,7 @@ $ ->
       $('#calendar_color').val(color)
 
   $('.calendar_color').wColorPicker
-    initColor: $('.header').css('backgroundColor')
+    initColor: default_color
     theme: "red"
     mode: "click"
     showSpeed: 200

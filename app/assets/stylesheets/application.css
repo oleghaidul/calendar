@@ -70,6 +70,10 @@ td.day {font-weight: normal !important;}
   margin-right: 10px;
 }
 
+div.popover-form .btn-danger {
+  margin-left: 10px;
+}
+
 .popover-form .form-horizontal .control-label {
   width: 100px;
 }

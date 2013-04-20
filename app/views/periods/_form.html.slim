@@ -33,4 +33,5 @@
     .pull-right.buttons
       span.btn.close_form Close
       = f.button :submit, class: 'btn btn-success'
+      = link_to 'Delete', period_path(@period), method: :delete, confirm: 'Are you shure?', class: 'btn btn-danger' if params[:action] == 'edit'
     .clearfix

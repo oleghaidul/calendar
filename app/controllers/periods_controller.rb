@@ -30,6 +30,12 @@ class PeriodsController < ApplicationController
     end
   end
 
+  def destroy
+    @calendar = @period.user_calendar
+    @period.destroy
+    redirect_to edit_calendar_path(@calendar), notice: "Period was successfully deleted."
+  end
+
   private
 
     def find_calendar

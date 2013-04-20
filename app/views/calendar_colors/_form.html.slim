@@ -1,4 +1,5 @@
-= simple_form_for [@calendar, @calendar_color], url: calendar_calendar_colors_url do |f|
+- params[:action] == 'new' ? url = calendar_calendar_colors_url : url = calendar_calendar_color_url
+= simple_form_for [@calendar, @calendar_color], url: url do |f|
   = f.input :color_name
   = content_tag(:div, class: 'calendar_color', style: 'float:left;padding-bottom: 5px;') do
     = content_tag(:span, 'Color', class: 'calendar_color_span')
