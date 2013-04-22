@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418180820) do
+ActiveRecord::Schema.define(:version => 20130422122543) do
 
   create_table "calendar_colors", :force => true do |t|
     t.string   "color_name"
@@ -118,11 +118,11 @@ ActiveRecord::Schema.define(:version => 20130418180820) do
     t.string   "name"
     t.boolean  "active",     :default => true
     t.boolean  "paid",       :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "user_id"
     t.string   "return_hex"
-    t.string   "color"
+    t.string   "color",      :default => "#D5EBDA"
   end
 
   create_table "users", :force => true do |t|
