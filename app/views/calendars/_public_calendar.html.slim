@@ -9,7 +9,7 @@
   br
   - diff = year.to_i - Date.today.year
   - ((Date.today + diff.year).to_date..11.month.since((Date.today + diff.year))).map{ |date| date.strftime("%Y, %m") }.uniq.each do |value|
-    = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a, price_periods: @calendar.price_periods.to_a, color: calendar_color)
+    = calendar_for(value.split.first.to_i, value.split.last.to_i, periods: @calendar.periods.to_a, price_periods: @calendar.price_periods.to_a, color: @calendar.color)
 
 .periods-colors.pull-left
   - @colors.each do |color|
