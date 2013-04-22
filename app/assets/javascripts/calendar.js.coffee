@@ -173,8 +173,13 @@ $ ->
               span.css("filter", "progid:DXImageTransform.Microsoft.gradient( startColorstr='"+color+"', endColorstr='#ffffff',GradientType=1)")
             else if status == "between"
                 color = $(this).data("color")
+                patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/
+                matches = patt.exec(color)
                 span.css("background", color)
-                span.css("color", "#fff")
+                if (parseInt(matches[1], 16) > 102 && parseInt(matches[2], 16) > 102) || (parseInt(matches[1], 16) > 102 && parseInt(matches[3], 16) > 102) || (parseInt(matches[2], 16) > 102 && parseInt(matches[3], 16) > 102) || (parseInt(matches[1], 16) == 102 && parseInt(matches[2], 16) == 255)
+                  span.css("color", "#000")
+                else
+                  span.css("color", "#fff")
 
       @hover ->
         if $(@).data('period-id')

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/oleghaidul/later_dude.git
-  revision: 83afe6f1f326d94cc17aec033f06cf6d50c03e0a
+  revision: 2276564a2457a548abc954fa6be76ada937f6627
   specs:
     later_dude (0.3.1)
       rails (>= 2.3)
@@ -103,7 +103,7 @@ GEM
     haml (4.0.1)
       tilt
     highline (1.6.16)
-    hike (1.2.1)
+    hike (1.2.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -131,7 +131,7 @@ GEM
       rack-contrib
       railties
     method_source (0.8.1)
-    mime-types (1.22)
+    mime-types (1.23)
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
     money (5.1.1)
@@ -244,7 +244,7 @@ GEM
       libv8 (~> 3.11.8.12)
       ref
     thor (0.18.1)
-    tilt (1.3.6)
+    tilt (1.3.7)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
