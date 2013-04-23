@@ -1,5 +1,6 @@
 class CalendarsController < ApplicationController
-  layout 'clear', only: [:show, :public_list]
+  layout 'clear', only: :show
+  layout 'list', only: :public_list
   helper LaterDude::CalendarHelper
   load_and_authorize_resource :user_calendar, instance_name: :calendar, parent: false, exept: :public_list
   respond_to :js, only: :new
