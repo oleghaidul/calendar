@@ -343,6 +343,10 @@ div.popover-form .guests select, div.popover-form .guests input{
   background: linear-gradient(top, #ffffff 0%, #ffffff 50%, #f1f6f8 50%, #f1f6f8 100%);
 }
 
+table#index-table {
+  margin-top: 20px;
+}
+
 table#index-table td span {
   width: 29px;
   display: block;
@@ -430,3 +434,10 @@ div.guests {
     margin-right: 1em; }
   .flickr_pagination .next_page {
     margin-left: 1em; }
+
+.not_found {
+  text-align: center;
+  margin-top: 30%;
+  font-size: 20px;
+  font-weight: bold;
+}

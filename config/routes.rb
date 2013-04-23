@@ -11,6 +11,7 @@ Calendar::Application.routes.draw do
     resources :price_periods
   end
   match '/:id' => 'calendars#show', as: :public_calendar, constraints: { id: /\d+/ }
+  match 'list/:user_id' => 'calendars#public_list', as: :public_list, constraints: { user_id: /\d+/ }
   resources :periods
   resources :pages
   match '/contact_us' => 'home#contact_us', as: :contact_us

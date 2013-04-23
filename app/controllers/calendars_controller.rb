@@ -1,7 +1,7 @@
 class CalendarsController < ApplicationController
-  layout 'clear', only: :show
+  layout 'clear', only: [:show, :public_list]
   helper LaterDude::CalendarHelper
-  load_and_authorize_resource :user_calendar, instance_name: :calendar, parent: false
+  load_and_authorize_resource :user_calendar, instance_name: :calendar, parent: false, exept: :public_list
   respond_to :js, only: :new
 
   def index
@@ -50,5 +50,9 @@ class CalendarsController < ApplicationController
   def list
     @calendars = current_user.user_calendars
     @calendars = @calendars.where(paid: true)
+  end
+
+  def public_list
+    @calendars = UserCalendar.where(user_id: params[:user_id])
   end
 end

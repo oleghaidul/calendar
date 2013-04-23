@@ -15,7 +15,7 @@ class Ability
     can :manage, Period
     can :manage, CalendarColor
     can :manage, PricePeriod
-    can :show, UserCalendar
+    can [:public_list, :show], UserCalendar
   end
 
   def admin
@@ -31,7 +31,7 @@ class Ability
   end
 
   def guest
-    can :show, UserCalendar
+    can [:public_list, :show], UserCalendar
   end
 
   def member
