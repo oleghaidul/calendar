@@ -1,5 +1,5 @@
 .popover-form
-  = simple_form_for @period, html: {class: 'form-horizontal'} do |f|
+  = simple_form_for @period, html: {class: 'form-horizontal', id: 'period-form', novalidate: false} do |f|
     = f.input :first_name
     = f.input :last_name
     .guests

@@ -73,6 +73,7 @@ $ ->
             url: "/periods/new?calendar_id=#{calendar_id}"
             cache: false
             ).done ->
+              $("#period-form").validate()
               $(".popover").show()
               $('#period_start_date').val(data)
               $('[class~=datepicker]').datepicker
@@ -103,6 +104,7 @@ $ ->
             url: "/periods/#{period_id}/edit?calendar_id=#{calendar_id}"
             cache: false
             ).done ->
+              $("#period-form").validate()
               $(".popover").show()
               $('[class~=datepicker]').datepicker
                 "autoclose": true

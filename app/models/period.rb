@@ -8,8 +8,8 @@ class Period < ActiveRecord::Base
   validate :end_date_before_start_date
   validate :end_date_eq_start_date
   validates :start_date, :end_date, :overlap => {:exclude_edges => ["start_date", "end_date"], :scope => "user_calendar_id"}
-  validates :start_date, presence: true, unless: proc { end_date.nil? }
-  validates :end_date, presence: true, unless: proc { start_date.nil? }
+  validates :start_date, presence: true
+  validates :end_date, presence: true
   validates :calendar_color, presence: true
 
   after_save :check_date_range
