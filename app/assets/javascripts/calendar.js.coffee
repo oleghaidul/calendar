@@ -140,49 +140,6 @@ $ ->
 
   $.fn.extend
     colorize: ->
-      @each ->
-        status = $(this).data("status")
-        span = $(@).children("span")
-        if status == "bouth"
-          color = $(this).data("color")
-          start_color = color[0]
-          end_color = color[1]
-          span.css("background", "-webkit-linear-gradient(-45deg, "+end_color+" 47%, #ffffff 48%, #ffffff 52% ,"+start_color+" 47%)")
-          span.css("background", "-webkit-gradient(linear, left top, right bottom, color-stop(47%,"+end_color+"), color-stop(48%,#ffffff), color-stop(52%,ffffff), color-stop(47%,"+start_color+"))")
-          span.css("background", "-moz-linear-gradient(-45deg, "+end_color+" 47%, #ffffff 48%, #ffffff 52% ,"+start_color+" 47%)")
-          span.css("background", "-o-linear-gradient(-45deg, "+end_color+" 47%, #ffffff 48%, #ffffff 52% ,"+start_color+" 47%)")
-          span.css("background", "-ms-linear-gradient(-45deg, "+end_color+" 47%, #ffffff 48%, #ffffff 52% ,"+start_color+" 47%)")
-          span.css("background", "linear-gradient(135deg, "+end_color+" 47%, #ffffff 48%, #ffffff 52% ,"+start_color+" 47%)")
-          span.css("filter", "progid:DXImageTransform.Microsoft.gradient( startColorstr='"+end_color+"', endColorstr='"+start_color+"',GradientType=1)")
-          span.css("color", "#fff")
-        else if status == "start"
-            color = $(this).data("color")
-            span.css("background", "-webkit-linear-gradient(135deg, "+color+" 50%, #ffffff 50%)")
-            span.css("background", "-webkit-gradient(linear, right bottom, left top, color-stop(50%,"+color+"), color-stop(50%,#ffffff))")
-            span.css("background", "-moz-linear-gradient(135deg, "+color+" 50%, #ffffff 50%)")
-            span.css("background", "-o-linear-gradient(135deg, "+color+" 50%, #ffffff 50%)")
-            span.css("background", "-ms-linear-gradient(135deg, "+color+" 50%, #ffffff 50%)")
-            span.css("background", "linear-gradient(-45deg, "+color+" 50%, #ffffff 50%)")
-            span.css("filter", "progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='"+color+"',GradientType=1)")
-          else if status == "end"
-              color = $(this).data("color")
-              span.css("background", "-webkit-linear-gradient(-45deg, "+color+" 50%, #ffffff 50%)")
-              span.css("background", "-webkit-gradient(linear, left top, right bottom, color-stop(50%,"+color+"), color-stop(50%,#ffffff))")
-              span.css("background", "-moz-linear-gradient(-45deg, "+color+" 50%, #ffffff 50%)")
-              span.css("background", "-o-linear-gradient(-45deg, "+color+" 50%, #ffffff 50%)")
-              span.css("background", "-ms-linear-gradient(-45deg, "+color+" 50%, #ffffff 50%)")
-              span.css("background", "linear-gradient(135deg, "+color+" 50%, #ffffff 50%)")
-              span.css("filter", "progid:DXImageTransform.Microsoft.gradient( startColorstr='"+color+"', endColorstr='#ffffff',GradientType=1)")
-            else if status == "between"
-                color = $(this).data("color")
-                patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/
-                matches = patt.exec(color)
-                span.css("background", color)
-                if (parseInt(matches[1], 16) > 102 && parseInt(matches[2], 16) > 102) || (parseInt(matches[1], 16) > 102 && parseInt(matches[3], 16) > 102) || (parseInt(matches[2], 16) > 102 && parseInt(matches[3], 16) > 102) || (parseInt(matches[1], 16) == 102 && parseInt(matches[2], 16) == 255)
-                  span.css("color", "#000")
-                else
-                  span.css("color", "#fff")
-
       @hover ->
         if $(@).data('period-id')
           period_id = $(@).data('period-id')[0] || $(@).data('period-id')
