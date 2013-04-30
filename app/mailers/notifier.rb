@@ -24,7 +24,7 @@ class Notifier < ActionMailer::Base
     body += "Postal code: #{period.post_code}\n" unless period.post_code.empty?
     body += "Info: #{period.info}\n" unless period.info.empty?
     body += "Go to calendar: "
-    body += "<a href='#{AppConfig.host}/calendars/#{calendar.id}/edit'>#{calendar.name}</a>"
+    body += "#{AppConfig.host}/calendars/#{calendar.id}/edit"
     mail to: email, subject: "#{calendar.name} notification", body: body
   end
 
