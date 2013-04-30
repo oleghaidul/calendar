@@ -23,7 +23,9 @@ class Notifier < ActionMailer::Base
     body += "State: #{period.state}\n" unless period.state.empty?
     body += "Postal code: #{period.post_code}\n" unless period.post_code.empty?
     body += "Info: #{period.info}\n" unless period.info.empty?
-    mail to: email, subject: "#{calendar} notification", body: body
+    body += "Go to calendar: "
+    body += "<a href='#{AppConfig.host}/calendars/#{calendar.id}/edit'>#{calendar.name}</a>"
+    mail to: email, subject: "#{calendar.name} notification", body: body
   end
 
   def user_registration_mail(user)
