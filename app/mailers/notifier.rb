@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "info@ecalendar.asia"
 
   def send_notification(email, calendar, period, boolean)
     if boolean
@@ -49,5 +49,9 @@ class Notifier < ActionMailer::Base
   def calendar_create_user(calendar)
     user_body = "Dear #{calendar.user.email}, you have create a new calendar: #{calendar.name}"
     mail to: calendar.user.email, subject: "Calendars notification", body: user_body
+  end
+
+  def test_mail
+    mail to: "xanderwot@gmail.com", subject: "calendars"
   end
 end
