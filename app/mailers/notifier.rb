@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "info@ecalendar.asia"
+  default from: "eCalendar.asia <info@ecalendar.asia>"
 
   def send_notification(email, calendar, period, boolean)
     if boolean
