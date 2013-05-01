@@ -54,6 +54,6 @@ class CalendarsController < ApplicationController
   end
 
   def public_list
-    @calendars = UserCalendar.where(user_id: params[:user_id])
+    @calendars = UserCalendar.where(user_id: params[:user_id]).where(paid: true)
   end
 end
