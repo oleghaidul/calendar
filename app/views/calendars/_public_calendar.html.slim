@@ -1,4 +1,4 @@
-.pull-left
+.pull-left class="#{'pull-left2' if action_name == 'edit'}"
   - prev_url = action_name == 'edit' ? edit_calendar_path(@calendar, year: @current_year.to_i - 1) : public_calendar_path(@calendar, year: @current_year.to_i - 1)
   = link_to "#{content_tag(:span, '<', style: 'color:#FF4200;')} Previous".html_safe, prev_url, remote: true
 .pull-right class="#{'margin-right' if action_name == 'edit'}"

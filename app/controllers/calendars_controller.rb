@@ -1,6 +1,5 @@
 class CalendarsController < ApplicationController
-  layout 'clear', only: :show
-  layout 'list', only: :public_list
+  layout :diff_layout
   helper LaterDude::CalendarHelper
   load_and_authorize_resource :user_calendar, instance_name: :calendar, parent: false, exept: :public_list
   respond_to :js, only: :new
@@ -56,4 +55,16 @@ class CalendarsController < ApplicationController
   def public_list
     @calendars = UserCalendar.where(user_id: params[:user_id]).where(paid: true)
   end
+
+  private
+    def diff_layout
+      case action_name
+      when 'show'
+        'clear'
+      when 'public_list'
+        'list'
+      else
+        'application'
+      end
+    end
 end

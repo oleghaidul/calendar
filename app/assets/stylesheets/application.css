@@ -370,10 +370,10 @@ table#index-table td {
   margin-left: 40px;
 }
 
-.margin-right {
-  margin-right: 55px;
+/*.margin-right {
+  padding-right: 15px;
 }
-
+*/
 span.add-on {
   cursor: pointer;
 }
@@ -443,3 +443,6 @@ div.guests {
 }
 
 label.error { float: none; color: red; padding-left: 30px;}
+.public_calendars .pull-right { padding-right: 50px; }
+.public_calendars .pull-left { padding-left: 40px; }
+.public_calendars .pull-left2 { padding-left: 0px; }
