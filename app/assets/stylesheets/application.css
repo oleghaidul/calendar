@@ -13,14 +13,14 @@
  *= require_tree .
  *= require wcolorpicker
  */
- html, body, .container {
+/* html, body, .container {
   height: 100%;
  }
  footer {
   width: 100%;
   text-align: center;
   padding-top: 10px;
- }
+ }*/
 
  table.my_calendar td {
   vertical-align: top;
