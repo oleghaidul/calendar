@@ -366,14 +366,6 @@ table#index-table td {
   word-wrap: break-word;
 }
 
-.periods-colors.pull-left {
-  margin-left: 40px;
-}
-
-/*.margin-right {
-  padding-right: 15px;
-}
-*/
 span.add-on {
   cursor: pointer;
 }
@@ -443,6 +435,6 @@ div.guests {
 }
 
 label.error { float: none; color: red; padding-left: 30px;}
-.public_calendars .pull-right { padding-right: 50px; }
-.public_calendars .pull-left { padding-left: 40px; }
-.public_calendars .pull-left2 { padding-left: 0px; }
+.public_calendars { max-width: 708px; }
+.public_calendars .pull-right { padding-right: 10px; }
+.public_calendars .periods-colors { float: left; max-width: 705px; text-align: left; }
