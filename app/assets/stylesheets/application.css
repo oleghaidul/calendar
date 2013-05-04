@@ -438,3 +438,6 @@ label.error { float: none; color: red; padding-left: 30px;}
 .public_calendars { max-width: 708px; }
 .public_calendars .pull-right { padding-right: 10px; }
 .public_calendars .periods-colors { float: left; max-width: 705px; text-align: left; }
+
+#home_page h1 { text-align: center; }
+#myCarousel { width: 800px; margin-right: auto; margin-left: auto; }

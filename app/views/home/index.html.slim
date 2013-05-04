@@ -1,1 +1,25 @@
-== Page.where {kind == 'home_page'}.first.try(:body)
+#home_page
+  h1 Welcome to eCalendar
+  #myCarousel.carousel.slide
+    ol.carousel-indicators
+      li data-target="#myCarousel" data-slide-to="0" class="active"
+      li data-target="#myCarousel" data-slide-to="1"
+      li data-target="#myCarousel" data-slide-to="2"
+    .carousel-inner
+      .active.item
+        = image_tag('colors.png')
+        .carousel-caption
+          h4 Сreate your own booking calendars
+          p With a various color set
+      .item
+        = image_tag('multiple.png')
+        .carousel-caption
+          h4 Multiple calendars for single account
+          p You can create many calendars on your account and manage it
+      .item
+        = image_tag('currency.png')
+        .carousel-caption
+          h4 Add price values to periods
+          p You can add different price values to your calendars
+    a.carousel-control.left href="#myCarousel" data-slide="prev" &lsaquo;
+    a.carousel-control.right href="#myCarousel" data-slide="next" &rsaquo;

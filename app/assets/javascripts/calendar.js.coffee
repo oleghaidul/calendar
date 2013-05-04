@@ -193,3 +193,5 @@ $ ->
       ("0" + parseInt(x).toString(16)).slice -2
     bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
     "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3])
+
+  $('.carousel').carousel()
