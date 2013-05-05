@@ -24,8 +24,7 @@ class Currency
     text.substr(first_index+1, length-1)
 $ ->
 
-  $('.test').hover ->
-    $(@).tooltip()
+  $('.carousel').carousel('cycle')
 
   $.fn.extend
     currency_edit: ->
@@ -193,5 +192,3 @@ $ ->
       ("0" + parseInt(x).toString(16)).slice -2
     bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
     "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3])
-
-  $('.carousel').carousel()

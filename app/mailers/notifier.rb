@@ -3,9 +3,9 @@ class Notifier < ActionMailer::Base
 
   def send_notification(email, calendar, period, boolean)
     if boolean
-      body = "Dear #{email}, the start date of one of your calendars is coming in #{period.start_date.strftime('%d %b %Y')} at #{period.start_time}.\n"
+      body = "Dear #{email}, start date of one of your calendars is coming up soon #{period.start_date.strftime('%d %b %Y')} at #{period.start_time}.\n"
     else
-      body = "Dear #{email}, the end date of one of your calendar is coming in #{period.end_date.strftime('%d %b %Y')} at #{period.end_time}.\n"
+      body = "Dear #{email}, end date of one of your calendars is coming up soon #{period.end_date.strftime('%d %b %Y')} at #{period.end_time}.\n"
     end
     body += "Period details:\n"
     body += "First name: #{period.first_name}\n" unless period.first_name.empty?
@@ -24,7 +24,7 @@ class Notifier < ActionMailer::Base
     body += "Postal code: #{period.post_code}\n" unless period.post_code.empty?
     body += "Info: #{period.info}\n" unless period.info.empty?
     body += "Go to calendar: "
-    body += "#{AppConfig.host}/calendars/#{calendar.id}/edit"
+    body += "http://#{AppConfig.host}/calendars/#{calendar.id}/edit"
     mail to: email, subject: "#{calendar.name} notification", body: body
   end
 
@@ -44,7 +44,7 @@ class Notifier < ActionMailer::Base
   end
 
   def calendar_payment_user(calendar)
-    user_body = "Dear #{calendar.user.email}, thank you for payment calendar: #{calendar.name}"
+    user_body = "Dear #{calendar.user.email}, thank you for payment. Calendar: #{calendar.name}"
     mail to: calendar.user.email, subject: "Payment notification", body: user_body
   end
 
