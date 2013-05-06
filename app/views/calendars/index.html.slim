@@ -1,5 +1,5 @@
 .pull-right
-  = link_to 'Create new calendar', new_calendar_url, remote: true
+  = link_to 'Create new calendar', new_calendar_url, remote: true, class: 'btn btn-info'
 
 = paginate @calendars
 = render 'table'

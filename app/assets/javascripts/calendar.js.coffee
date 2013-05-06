@@ -78,7 +78,6 @@ $ ->
               $('[class~=datepicker]').datepicker
                 "autoclose": true
                 format: 'dd-mm-yyyy'
-                startDate: data
                 $('input.cp1').colorpicker()
                 theme: "red"
                 mode: "click"
@@ -108,7 +107,6 @@ $ ->
               $('[class~=datepicker]').datepicker
                 "autoclose": true
                 format: 'dd-mm-yyyy'
-                startDate: data
                 $('input.cp1').colorpicker()
                 theme: "red"
                 mode: "click"

@@ -43,7 +43,7 @@ array = [
       ["Central African Republic - Central African CFA Franc (XAF)", "XAF"],
       ["Chad - Central African CFA Franc (XAF)", "XAF"],
       ["Chile - Chilean Peso (CLP)", "CLP"],
-      ["China Chinese - Chinese Yuan (CNY)", "CNY"],
+      ["China - Chinese Yuan (CNY)", "CNY"],
       ["Colombia - Colombian Peso (COP)", "COP"],
       ["Comoros - Comorian Franc (KMF)", "KMF"],
       ["Congo - Central African CFA Franc (XAF)", "XAF"],
