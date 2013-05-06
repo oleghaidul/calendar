@@ -3,11 +3,11 @@
     = f.input :first_name
     = f.input :last_name
     .guests
-      = f.input :start_date, :as => :string, label: 'Check In', :input_html => {:class => "datepicker input-small" }, wrapper: false
+      = f.input :start_date, :as => :string, label: 'Check In', :input_html => {:class => "datepicker input-small", value: @period.start_date.blank? ? '' : @period.start_date.strftime('%d-%m-%Y') }, wrapper: false
       = f.input :start_time, as: :select, collection: time_generator, wrapper: false, input_html: {class: 'input-mini'}, label: false, include_blank: false
     .clearfix
     .guests.end-date
-      = f.input :end_date, :as => :string, label: 'Check Out', :input_html => {:class => "datepicker input-small" }, wrapper: false
+      = f.input :end_date, :as => :string, label: 'Check Out', :input_html => {:class => "datepicker input-small", value: @period.end_date.blank? ? '' : @period.end_date.strftime('%d-%m-%Y') }, wrapper: false
       = f.input :end_time, as: :select, collection: time_generator, wrapper: false, input_html: {class: 'input-mini'}, label: false, include_blank: false
     .clearfix
     .guests

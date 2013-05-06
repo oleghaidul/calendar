@@ -75,8 +75,12 @@ $ ->
               $("#period-form").validate()
               $(".popover").show()
               $('#period_start_date').val(data)
-              $('[class~=datepicker]').datepicker
+              $('#period_start_date').datepicker
                 "autoclose": true
+                format: 'dd-mm-yyyy'
+              $('#period_end_date').datepicker
+                "autoclose": true
+                startDate: $('#period_start_date').val()
                 format: 'dd-mm-yyyy'
                 $('input.cp1').colorpicker()
                 theme: "red"
@@ -104,8 +108,12 @@ $ ->
             ).done ->
               $("#period-form").validate()
               $(".popover").show()
-              $('[class~=datepicker]').datepicker
+              $('#period_start_date').datepicker
                 "autoclose": true
+                format: 'dd-mm-yyyy'
+              $('#period_end_date').datepicker
+                "autoclose": true
+                startDate: $('#period_start_date').val()
                 format: 'dd-mm-yyyy'
                 $('input.cp1').colorpicker()
                 theme: "red"
