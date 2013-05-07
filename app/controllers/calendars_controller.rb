@@ -25,7 +25,7 @@ class CalendarsController < ApplicationController
 
   def create
     @calendar.attributes = params[:calendar]
-    @calendar.update_attributes(user_id: current_user.id)
+    @calendar.update_attributes(user_id: current_user.id, trial: true, trial_to: Date.today+15)
     if @calendar.save
       respond_with @calendar, location: edit_calendar_url(@calendar)
     else
@@ -49,11 +49,11 @@ class CalendarsController < ApplicationController
 
   def list
     @calendars = current_user.user_calendars
-    @calendars = @calendars.where(paid: true)
+    @calendars = @calendars.where{ "paid = true OR trial = true"}
   end
 
   def public_list
-    @calendars = UserCalendar.where(user_id: params[:user_id]).where(paid: true)
+    @calendars = UserCalendar.where(user_id: params[:user_id]).where{ "paid = true OR trial = true"}
   end
 
   private

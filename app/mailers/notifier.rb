@@ -53,6 +53,21 @@ class Notifier < ActionMailer::Base
     mail to: calendar.user.email, subject: "Calendars notification", body: user_body
   end
 
+  def trial(calendar)
+    body = "Dear #{calendar.user.email}, trial period of your calendar: #{calendar.name} is end, please paid fo it to continue using"
+    mail to: calendar.user.email, subject: "End of trial period", body: body
+  end
+
+  def trial_end(calendar)
+    body = "Dear #{calendar.user.email}, trial period of your calendar: #{calendar.name} is ending at #{calendar.trial_to.strftime('%d %b %Y')}"
+    mail to: calendar.user.email, subject: "End of trial period coming soon", body: body
+  end
+
+  def paid_end(calendar)
+    body = "Dear #{calendar.user.email}, paid period of your calendar: #{calendar.name} is ending at #{calendar.paid_to.strftime('%d %b %Y')}, please paid for it to continue using"
+    mail to: calendar.user.email, subject: "End of paid period", body: body
+  end
+
   def test_mail
     mail to: "xanderwot@gmail.com", subject: "calendars"
   end

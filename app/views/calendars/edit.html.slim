@@ -1,4 +1,7 @@
 .span10
+  - if @calendar.trial?
+    .trial_block
+      = "Trial period to #{@calendar.trial_to.strftime('%d %b %Y')}"
   = link_to "Calendar color settings", calendar_calendar_colors_path(@calendar), class: 'btn btn-info'
   = link_to "Add pricing", new_calendar_price_period_path(@calendar), remote: true, class: 'btn btn-info'
   br
@@ -15,7 +18,7 @@
 
 .span8.content
   .ability data-editable="true" data-calendar-id="#{@calendar.id}"
-    - if @calendar.paid?
+    - if @calendar.paid? || @calendar.trial?
       .clearfix
       .public_calendars= render 'public_calendar', year: @current_year
 
