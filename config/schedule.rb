@@ -23,11 +23,11 @@ every 1.day, at: '12:01 am' do
   runner "Period.send_notification"
 end
 
-every 1.day at: '12:06 am' do
+every 1.day, at: '12:06 am' do
   runner "UserCalendar.check_trial"
 end
 
-every 1.day at: '12:11 am' do
+every 1.day, at: '12:11 am' do
   runner "UserCalendar.check_paid"
 end
 # every 30.minutes do
