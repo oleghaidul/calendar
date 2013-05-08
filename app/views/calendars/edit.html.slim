@@ -28,7 +28,7 @@
         legend Your calendar is not activated
         = render 'paypal_form'
 
-- if @calendar.paid?
+- if @calendar.paid? || @calendar.trial?
   .span8
     h5 ADD THIS CALENDAR TO YOUR OWN WEBSITE
 
