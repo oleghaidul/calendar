@@ -65,9 +65,9 @@ class UserCalendar < ActiveRecord::Base
         if calendar.paid_to.any? && calendar.paid_to < Date.today
           calendar.update_attribute(:paid, false)
           Notifier.paid_end(calendar).deliver
-        elsif calendar.paid_to.any? && calendar.paid_to.to_date == Date.today-7
+        elsif calendar.paid_to.any? && calendar.paid_to.to_date == Date.today+7
           Notifier.paid_end(calendar).deliver
-        elsif calendar.paid_to.any? && calendar.paid_to.to_date == Date.today-1
+        elsif calendar.paid_to.any? && calendar.paid_to.to_date == Date.today+1
           Notifier.paid_end(calendar).deliver
         end
       end
