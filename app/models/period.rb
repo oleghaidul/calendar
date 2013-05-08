@@ -53,20 +53,24 @@ class Period < ActiveRecord::Base
       destroy if start_date.nil? && end_date.nil?
     end
 
+    #not shure - need test
     def self.send_notification
-      @periods_end = Period.where{end_date > Date.today}.where{ end_date <= Date.today+1}.includes(:user_calendar)
-      @periods_end.each do |period|
-        Notifier.send_notification( period.user_calendar.user.email,
-                                    period.user_calendar,
-                                    period,
-                                    false).deliver
-      end
-      @periods_start = Period.where{start_date > Date.today }.where{ start_date <= Date.today+1}.includes(:user_calendar)
-      @periods_start.each do |period_start|
-        Notifier.send_notification( period_start.user_calendar.user.email,
-                                    period_start.user_calendar,
-                                    period_start,
-                                    true).deliver
+      @calendars = UserCalendar.where{"(paid = true OR trial = true) AND active = true"}.includes(:periods)
+      @calendars.each do |calendar|
+        @periods_end = calendar.periods.where{end_date > Date.today}.where{ end_date <= Date.today+1}
+        @periods_end.each do |period|
+          Notifier.send_notification( period.user_calendar.user.email,
+                                      period.user_calendar,
+                                      period,
+                                      false).deliver
+        end
+        @periods_start = calendar.periods.where{start_date > Date.today }.where{ start_date <= Date.today+1}
+        @periods_start.each do |period_start|
+          Notifier.send_notification( period_start.user_calendar.user.email,
+                                      period_start.user_calendar,
+                                      period_start,
+                                      true).deliver
+        end
       end
     end
 end
