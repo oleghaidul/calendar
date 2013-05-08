@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/oleghaidul/later_dude.git
-  revision: 92ba2e25ac8f561ee02d5b089830ab169df3f274
+  revision: a9516231f9b5db0c301e507513e77a3abdef51aa
   specs:
     later_dude (0.3.1)
       rails (>= 2.3)
@@ -136,7 +136,7 @@ GEM
       subexec (~> 0.2.1)
     money (5.1.1)
       i18n (~> 0.6.0)
-    multi_json (1.7.2)
+    multi_json (1.7.3)
     nested_form (0.3.2)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
