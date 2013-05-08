@@ -50,7 +50,7 @@ class UserCalendar < ActiveRecord::Base
     def self.check_trial
       @calendars = UserCalendar.where(trial: true)
       @calendars.each do |calendar|
-        if calendar.trial_to < Date.today
+        if calendar.trial_to.to_date == Date.today
           calendar.update_attribute(:trial, false)
           Notifier.trial(calendar).deliver
         elsif calendar.trial_to.to_date == Date.today-1
