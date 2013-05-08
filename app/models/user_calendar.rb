@@ -62,13 +62,15 @@ class UserCalendar < ActiveRecord::Base
     def self.check_paid
       @calendars = UserCalendar.where(paid: true)
       @calendars.each do |calendar|
-        if calendar.paid_to.any? && calendar.paid_to < Date.today
-          calendar.update_attribute(:paid, false)
-          Notifier.paid_end(calendar).deliver
-        elsif calendar.paid_to.any? && calendar.paid_to.to_date == Date.today+7
-          Notifier.paid_end(calendar).deliver
-        elsif calendar.paid_to.any? && calendar.paid_to.to_date == Date.today+1
-          Notifier.paid_end(calendar).deliver
+        unless calendar.paid_to.nil?
+          if calendar.paid_to.to_date == Date.today
+            calendar.update_attribute(:paid, false)
+            Notifier.paid_end(calendar).deliver
+          elsif calendar.paid_to.to_date == Date.today+7
+            Notifier.paid_end(calendar).deliver
+          elsif calendar.paid_to.to_date == Date.today+1
+            Notifier.paid_end(calendar).deliver
+          end
         end
       end
     end
