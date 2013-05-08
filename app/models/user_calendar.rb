@@ -53,7 +53,7 @@ class UserCalendar < ActiveRecord::Base
         if calendar.trial_to.to_date == Date.today
           calendar.update_attribute(:trial, false)
           Notifier.trial(calendar).deliver
-        elsif calendar.trial_to.to_date == Date.today-1
+        elsif calendar.trial_to.to_date == Date.today+1
           Notifier.trial_end(calendar).deliver
         end
       end
