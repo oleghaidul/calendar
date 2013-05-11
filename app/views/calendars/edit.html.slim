@@ -2,6 +2,7 @@
   - if @calendar.trial?
     .trial_block
       = "Trial period until #{@calendar.trial_to.strftime('%d %b %Y')}"
+      = render 'paypal_form'
   = link_to "Calendar color settings", calendar_calendar_colors_path(@calendar), class: 'btn btn-info'
   = link_to "Add pricing", new_calendar_price_period_path(@calendar), remote: true, class: 'btn btn-info'
   br
