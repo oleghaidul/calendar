@@ -16,11 +16,13 @@ class CalendarsController < ApplicationController
     @colors = @calendar.periods_colors
     @current_year = params[:year] || DateTime.now.year
     @price_periods = @calendar.price_periods
+    @domain = request.env["HTTP_HOST"]
   end
 
   def show
     @colors = @calendar.periods_colors
     @current_year = params[:year] || DateTime.now.year
+    @domain = request.env["HTTP_HOST"]
   end
 
   def create

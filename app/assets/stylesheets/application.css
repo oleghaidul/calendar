@@ -321,8 +321,12 @@ div.popover-form .guests select, div.popover-form .guests input{
   width: 100px;
 }
 
-.container.clear {
+.container.clear.asia {
   width:1062px;
+}
+
+.container.clear.pro {
+  width:708px;
 }
 
 .iframe-link {
@@ -436,8 +440,12 @@ div.guests {
 
 label.error { float: none; color: red; padding-left: 30px;}
 .public_calendars { width: 1062px; }
-.public_calendars .pull-right { padding-right: 10px; }
 .public_calendars .periods-colors { float: left; max-width: 1050px; text-align: left; }
+.public_calendars.asia { width: 1062px; }
+.public_calendars .pull-right { padding-right: 10px; }
+.public_calendars.asia .periods-colors { float: left; max-width: 1050px; text-align: left; }
+.public_calendars.pro { width: 708px; }
+.public_calendars.pro .periods-colors { float: left; max-width: 708px; text-align: left; }
 
 #home_page h1 { text-align: center; }
 #myCarousel { width: 800px; margin-right: auto; margin-left: auto; }

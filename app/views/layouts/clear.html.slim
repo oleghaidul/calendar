@@ -20,8 +20,14 @@ html lang="en"
 
   body
 
-    .container.clear
-      .row
-        .price_period
-        = yield
+    - if @domain == 'ecalendar.asia'
+      .container.clear.asia
+        .row
+          .price_period
+          = yield
+    - else
+      .container.clear.pro
+        .row
+          .price_period
+          = yield
     footer
