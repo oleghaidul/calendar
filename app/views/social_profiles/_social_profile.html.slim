@@ -1,0 +1,16 @@
+h4 = t(:connected_social_profiles)
+table.table
+  - @user.social_profiles.each do |sp|
+    tr
+      td = sp.provider
+      td = sp.uid
+      td = link_to t(:disconnect), social_profile_path(sp.id), method: :delete, data: { confirm: "#{t(:you_sure)}" }, class: 'btn btn-danger right'
+
+h4 = t(:connect_another_social_profile)
+table.table.table-hover
+  - SocialProfile.provider.values.each do |provider|
+    tr
+      td = provider
+      td = link_to t(:connect), user_omniauth_authorize_path(provider), class: 'btn btn-primary right'
+
+br

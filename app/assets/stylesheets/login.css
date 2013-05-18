@@ -112,8 +112,8 @@ p{ line-height:20px;}
 .user {background: url(user.png) no-repeat;}
 .user.error {background: url(user_error.png) no-repeat; border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
 
-.password {background: url(password.png) no-repeat;}
-.password.error {background: url(password_error.png) no-repeat; border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
+#content .password {background: url(password.png) no-repeat;}
+#content .password.error {background: url(password_error.png) no-repeat; border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
 
 /** Register Fields **/
 .register {
