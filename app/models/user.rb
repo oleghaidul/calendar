@@ -23,6 +23,27 @@ class User < ActiveRecord::Base
     end
   end
 
+  class << self
+    def find_first_by_auth_conditions(warden_conditions)
+      conditions = warden_conditions.dup
+      if login = conditions.delete(:login)
+        where(conditions).where(["lower(email) = :value", { value: login.downcase }]).first
+      else
+        where(conditions).first
+      end
+    end
+
+    def find_for_oauth(access_token, current_user = nil)
+      if auth = SocialProfile.find_by_provider_and_uid(access_token.provider, access_token.uid.to_s)
+         auth.user.update_social_profile(access_token)
+      elsif current_user
+        current_user.add_social_profile(access_token)
+      else
+        User.new
+      end
+    end
+  end
+
   def add_social_profile(access_token)
     profile = social_profiles.create!( provider: access_token.provider,
                                        uid: access_token.uid,
