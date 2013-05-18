@@ -1,7 +1,4 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  include Locale
-  before_filter :set_locale
-
   def facebook
     data = session[:social_data] = request.env["omniauth.auth"].except("extra")
     @user = User.find_for_oauth(data, current_user)
