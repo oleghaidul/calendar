@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507124843) do
+ActiveRecord::Schema.define(:version => 20130518191558) do
 
   create_table "calendar_colors", :force => true do |t|
     t.string   "color_name"
@@ -113,6 +113,15 @@ ActiveRecord::Schema.define(:version => 20130507124843) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "social_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "user_calendars", :force => true do |t|
     t.string   "name"

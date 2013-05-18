@@ -1,14 +1,61 @@
-<h2>Sign in</h2>
+<!-- Box Start-->
+<div id="box_bg">
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+  <div id="content">
+    <h1>Sign In</h1>
 
-  <%= f.input :email, :required => false, :autofocus => true %>
-  <%= f.input :password, :required => false %>
-  <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
 
-  <br>
+      <div id="login_area">Sign in using your registered account:<br/>
+        <%= f.text_field :email, class: 'login user', placeholder: 'Username' %>
+        <%= f.text_field :password, class: 'login password', placeholder: 'Password' %>
+      </div>
+      <br>
 
-  <%= f.button :submit, "Sign in", :class => "btn btn-success" %>
-<% end %>
+    <!-- Social Buttons -->
+    <div class="social">
+      Sign in using social network:<br/>
+      <div class="twitter">
+        <a href="#" class="btn_1">Login with Twitter</a>
 
-<%= render "devise/shared/links" %>
+      </div>
+      <div class="fb">
+        <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn_2' %></div>
+      </div>
+      <%= f.submit "Sign in", class: 'button green' %>
+
+      <!-- Checkbox -->
+      <div class="checkbox">
+        <li>
+          <fieldset>
+            <![if !IE | (gte IE 8)]><legend id="title2" class="desc"></legend><![endif]>
+            <!--[if lt IE 8]><label id="title2" class="desc"></label><![endif]-->
+            <div>
+              <span>
+                <%= f.check_box :remember_me, class: 'field checkbox' if devise_mapping.rememberable? %>
+                <%= f.label :remember_me, "Keep me sign in", class: 'choice' %>
+
+              </span>
+            </div>
+          </fieldset>
+        </li>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Text Under Box -->
+<div id="bottom_text">
+  Don't have an account?
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <% end -%>
+  Remind
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+    <%= link_to "Password", new_password_path(resource_name) %><br />
+  <% end -%>
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "Resend", new_confirmation_path(resource_name) %>
+    confirmation instructions
+  <% end -%>
+</div>
