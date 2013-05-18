@@ -1,53 +1,13 @@
-<div id="box_bg">
+<h2>Sign up</h2>
 
-  <div id="content">
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
 
-    <h1 class="blue">Register</h1>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
-      <br>
+  <%= f.input :email, :required => true, :autofocus => true %>
+  <%= f.input :password, :required => true %>
+  <%= f.input :password_confirmation, :required => true %>
+  <br>
 
+  <%= f.button :submit, "Sign up", :class => 'btn btn-success' %>
+<% end %>
 
-
-      <!-- Register Fields -->
-      <div id="reg">
-        <%= f.text_field :email, class: 'register', placeholder: 'Email' %>
-        <%= f.text_field :password, class: 'register', placeholder: 'Password' %>
-        <%= f.text_field :password_confirmation, class: 'register', placeholder: 'Password Confirmation' %>
-      </div>
-      <br />
-      <!-- Social Buttons -->
-      <div class="social">
-        Sign in using social network:<br/>
-        <div class="twitter"><a href="#" class="btn_1">Login with Twitter</a></div>
-        <div class="fb"><a href="#" class="btn_2">Login with Facebook</a></div>
-      </div>
-
-      <%= f.submit "Sign up", class: 'button blue' %>
-
-      <!-- Checkbox -->
-      <div class="checkbox">
-        <li>
-        <fieldset>
-          <![if !IE | (gte IE 8)]><legend id="title2" class="desc"></legend><![endif]>
-          <!--[if lt IE 8]><label id="title2" class="desc"></label><![endif]-->
-          <div>
-            <span>
-              <input id="Field" name="Field" type="checkbox" class="field checkbox" value="First Choice" tabindex="4" onchange="handleInput(this);" />
-              <label class="choice" for="Field">I have read and I agree<br/>  the Terms of Use</label>
-            </span>
-          </div>
-        </fieldset>
-        </li>
-      </div>
-    <% end %>
-
-  </div>
-</div>
-
-<!-- Text Under Box -->
-<div id="bottom_text">
-  Already have an account?
-  <%- if controller_name != 'sessions' %>
-    <%= link_to "Sign in", new_session_path(resource_name), id: 'blue' %><br />
-  <% end -%>
-</div>
+<%= render "devise/shared/links" %>

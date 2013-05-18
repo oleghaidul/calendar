@@ -33,10 +33,6 @@ gem 'validates_overlap'
 gem 'whenever', :require => false
 gem 'kaminari'
 
-gem 'oauth2'
-gem 'omniauth'
-gem 'omniauth-facebook'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

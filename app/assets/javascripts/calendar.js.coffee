@@ -22,8 +22,8 @@ class Currency
     last_index = text.indexOf(")")
     length= last_index - first_index
     text.substr(first_index+1, length-1)
-
 $ ->
+
   $('.carousel').carousel('cycle')
 
   $.fn.extend

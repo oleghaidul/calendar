@@ -2,7 +2,7 @@ Calendar::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: "registrations", sessions: "sessions"}
+  devise_for :users
 
   resources :calendars do
     get :make_paid, on: :member
