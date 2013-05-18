@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def create_with_social_email!(social_email)
-    self.email = self.username = social_email
+    self.email = social_email
     self.password = Devise.friendly_token
     save
   end
