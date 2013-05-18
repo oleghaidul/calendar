@@ -4,6 +4,13 @@ Calendar::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: "registrations", sessions: "sessions"}
 
+  devise_scope :user do
+    match 'verify_email', to: 'omniauth_callbacks#verify_email'
+    match 'email_already_exist', to: 'omniauth_callbacks#email_already_exist'
+    match 'fill_email', to: 'omniauth_callbacks#fill_email'
+    match 'social_profile_already_connected', to: 'omniauth_callbacks#social_profile_already_connected'
+  end
+
   resources :calendars do
     get :make_paid, on: :member
     get :list, on: :collection
@@ -22,6 +29,8 @@ Calendar::Application.routes.draw do
       get :paypal_cancel
     end
   end
+
+  resources :social_profiles, only: :destroy
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
