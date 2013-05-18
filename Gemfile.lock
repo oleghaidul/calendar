@@ -97,13 +97,17 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
     font-awesome-sass-rails (3.0.2.2)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
     haml (4.0.2)
       tilt
+    hashie (2.0.5)
     highline (1.6.18)
     hike (1.2.2)
+    httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -113,6 +117,8 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.7)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -137,6 +143,7 @@ GEM
     money (5.1.1)
       i18n (~> 0.6.0)
     multi_json (1.7.3)
+    multipart-post (1.2.0)
     nested_form (0.3.2)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
@@ -146,6 +153,20 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     nokogiri (1.5.9)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-facebook (1.4.1)
+      omniauth-oauth2 (~> 1.1.0)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyamorous (0.5.0)
@@ -293,6 +314,9 @@ DEPENDENCIES
   meta_request
   mini_magick
   nested_form
+  oauth2
+  omniauth
+  omniauth-facebook
   pg
   pry-rails
   rails (= 3.2.13)
