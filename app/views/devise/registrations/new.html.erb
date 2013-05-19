@@ -18,8 +18,7 @@
       <!-- Social Buttons -->
       <div class="social">
         Sign in using social network:<br/>
-        <div class="twitter"><a href="#" class="btn_1">Login with Twitter</a></div>
-        <div class="fb"><a href="#" class="btn_2">Login with Facebook</a></div>
+        <div class="fb"><%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn_2' %></div>
       </div>
 
       <%= f.submit "Sign up", class: 'button blue' %>

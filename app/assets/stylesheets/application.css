@@ -251,11 +251,11 @@ span.colors .color {
 .calendar_color, .calendar-color {
   margin-top: 2px;
 }
-
+/*
 .hover {
   opacity: 0.9;
 }
-
+*/
 #edit_calendar #calendar_color, #edit_calendar #calendar_name {
   margin-left: 10px;
 }

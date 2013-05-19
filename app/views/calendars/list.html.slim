@@ -14,5 +14,5 @@ br
       - @calendars.each do |calendar|
         tr
           td.calendar-name
-            p= link_to calendar.name, edit_calendar_path(calendar)
+            p= link_to calendar.name, edit_calendar_path(calendar), target: :_blank
           =calendar_index_for(value.split[0].to_i, value.split[1].to_i, periods: calendar.periods, price_periods: calendar.price_periods)
