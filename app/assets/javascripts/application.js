@@ -14,6 +14,11 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery_nested_form
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/calendar
 //= require_tree .
 //= require jquery-ui
 //= require bootstrap-datepicker

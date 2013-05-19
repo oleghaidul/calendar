@@ -2,7 +2,7 @@
   - if @calendar.trial?
     .trial_block
       = "Trial period until #{@calendar.trial_to.strftime('%d %b %Y')}"
-  = link_to "Calendar color settings", calendar_calendar_colors_path(@calendar), class: 'btn btn-info'
+  = link_to "Calendar color settings", calendar_calendar_colors_path(@calendar), class: 'btn btn-info', id: 'new_color'
   = link_to "Add pricing", new_calendar_price_period_path(@calendar), remote: true, class: 'btn btn-info'
   br
   br
@@ -55,3 +55,12 @@
           th Actions
         tbody
           = render @price_periods
+
+
+#colors.modal.hide.fade aria-hidden="true" aria-labelledby="newCalendarLabel" role="dialog" tabindex="-1"
+  .modal-header
+    button.close aria-hidden="true" data-dismiss="modal" type="button" ×
+    h3#myModalLabel Calendar Color
+  .modal-body
+    .errors
+    = render 'calendar_colors/backbone'

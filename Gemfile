@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 
 gem 'activemerchant', :require => 'active_merchant'
+gem 'rails-backbone'
 gem "cancan"
 gem "carrierwave"
 gem "ckeditor"

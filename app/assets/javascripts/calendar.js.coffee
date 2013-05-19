@@ -26,6 +26,10 @@ $ ->
 
   $('.carousel').carousel('cycle')
 
+  $('#new_color').click (e) ->
+    e.preventDefault()
+    $('#colors').modal()
+
   $.fn.extend
     currency_edit: ->
       currency = new Currency($(@))
@@ -180,21 +184,15 @@ $ ->
     onSelect: (color) ->
       $('#calendar_color').val(color)
 
-  $('.calendar_color').wColorPicker
-    initColor: default_color
-    theme: "red"
-    mode: "click"
-    showSpeed: 200
-    hideSpeed: 200
-    onSelect: (color) ->
-      $('#calendar_color_color_hash').val(color)
+
 
   $.cssHooks.backgroundColor = get: (elem) ->
-  if elem.currentStyle
-    bg = elem.currentStyle["backgroundColor"]
-  else bg = document.defaultView.getComputedStyle(elem, null).getPropertyValue("background-color")  if window.getComputedStyle
-  unless bg.search("rgb") is -1
-    hex = (x) ->
-      ("0" + parseInt(x).toString(16)).slice -2
-    bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-    "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3])
+    if elem
+      if elem.currentStyle
+        bg = elem.currentStyle["backgroundColor"]
+      else bg = document.defaultView.getComputedStyle(elem, null).getPropertyValue("background-color")  if window.getComputedStyle
+      unless bg.search("rgb") is -1
+        hex = (x) ->
+          ("0" + parseInt(x).toString(16)).slice -2
+        bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+        "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3])

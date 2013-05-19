@@ -445,3 +445,8 @@ label.error { float: none; color: red; padding-left: 30px;}
 .btn.btn-info { margin-right: 10px; }
 .container .row { margin-left: 0px; }
 .trial_block { text-align: center; }
+
+#calendar_colors .color_hash {
+  width: 50px;
+  height: 25px;
+}

@@ -60,6 +60,7 @@ GEM
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
+    callsite (0.0.11)
     cancan (1.6.9)
     capistrano (2.15.3)
       highline
@@ -92,6 +93,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    ejs (1.0.0)
     enumerize (0.5.1)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -127,7 +129,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.2.3)
+    meta_request (0.2.5)
+      callsite
       rack-contrib
       railties
     method_source (0.8.1)
@@ -177,6 +180,10 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-backbone (0.7.2)
+      coffee-script (~> 2.2.0)
+      ejs (~> 1.0.0)
+      railties (>= 3.1.0)
     rails_admin (0.4.7)
       bootstrap-sass (~> 2.2)
       builder (~> 3.0)
@@ -296,6 +303,7 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 3.2.13)
+  rails-backbone
   rails_admin
   responders
   sass-rails (~> 3.2.3)

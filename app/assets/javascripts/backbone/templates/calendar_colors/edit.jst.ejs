@@ -1,0 +1,24 @@
+<h4>Edit</h4>
+
+<form id="edit-calendar_color" class="form-horizontal" name="calendar_color">
+  <div class="control-group">
+    <label class="control-label" for="color_name">Name</label>
+    <div class="controls">
+      <input type="text" id="color_name" placeholder="Enter color name" value="<%= color_name %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="color_name">Color</label>
+    <div class="controls">
+      <div class="calendar_color"></div>
+      <input type="hidden" id="color_hash" value="<%= color_hash %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn">Update Calendar Color</button>
+    </div>
+  </div>
+</form>
+
+<a href="#/index">Back</a>
