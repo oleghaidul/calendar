@@ -219,8 +219,6 @@ Devise.setup do |config|
 
   SETUP_PROC = lambda do |env|
     req = Rack::Request.new(env)
-    # Note client_id & client_secret for Facebook
-    binding.pry
     env['omniauth.strategy'].options[:client_id] = current_domain(req).app_id
     env['omniauth.strategy'].options[:client_secret] = current_domain(req).app_secret
   end
