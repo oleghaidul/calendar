@@ -4,19 +4,19 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 body #content{ background: url(body-bg.png); color:#838383;}
 #content {font:13px "Droid Sans", Arial, Helvetica, sans-serif;}
 
-h1,h2,h3,h4,h5,h6{ font-weight:bold; font-family: 'Droid Sans', sans-serif;  color:#434853;  text-shadow:0px 1px 0px #fff; letter-spacing: -0.5px;  }
-h1{ font-size:20px; color: #2d932b; padding: 0 0 13px 0; border-bottom: 1px solid #e0e0e0;}
-h2{ font-size:24px;}
-h3{ font-size:17px;}
-h4{ font-size:14px;}
-h5{ font-size:12px;}
-h6{ font-size:10px;}
+#content h1,#content h2,#content h3,#content h4,#content h5,#content h6{ font-weight:bold; font-family: 'Droid Sans', sans-serif;  color:#434853;  text-shadow:0px 1px 0px #fff; letter-spacing: -0.5px;  }
+#content h1{ font-size:20px; color: #2d932b; padding: 0 0 13px 0; border-bottom: 1px solid #e0e0e0;}
+#content h2{ font-size:24px;}
+#content h3{ font-size:17px;}
+#content h4{ font-size:14px;}
+#content h5{ font-size:12px;}
+#content h6{ font-size:10px;}
 
-input, textarea { font-family:tahoma, arial; font-size:12px; color:#57595d;}
+#content input, textarea { font-family:tahoma, arial; font-size:12px; color:#57595d;}
 
 
-a{ text-decoration:none;}
-p{ line-height:20px;}
+#content a{ text-decoration:none;}
+#content p{ line-height:20px;}
 
 #box_bg {
   border: 1px solid #d5d5d5;
@@ -47,7 +47,7 @@ p{ line-height:20px;}
 
 .button {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; display: inline-block; float: right; margin-top: 18px;}
 
-.button.green {
+#content .button.green {
   background-image: linear-gradient(bottom, #2D922B 0%, #58BD56 100%);
   background-image: -o-linear-gradient(bottom, #2D922B 0%, #58BD56 100%);
   background-image: -moz-linear-gradient(bottom, #2D922B 0%, #58BD56 100%);
@@ -66,10 +66,10 @@ p{ line-height:20px;}
   display: block;
 }
 
-.button.green:hover {background: #49ac47;}
-.button.green:active {margin-top: 19px;}
+#content .button.green:hover {background: #49ac47;}
+#content .button.green:active {margin-top: 19px;}
 
-.button.blue {
+#content .button.blue {
   background-image: linear-gradient(bottom, #1F7FB6 0%, #4EABE0 100%);
   background-image: -o-linear-gradient(bottom, #1F7FB6 0%, #4EABE0 100%);
   background-image: -moz-linear-gradient(bottom, #1F7FB6 0%, #4EABE0 100%);
@@ -87,13 +87,13 @@ p{ line-height:20px;}
   display: block;
 }
 
-.button.blue:hover {background: #3897cd;}
-.button.blue:active {margin-top: 19px;}
+#content .button.blue:hover {background: #3897cd;}
+#content .button.blue:active {margin-top: 19px;}
 
 /** Login Fields **/
 #login_area {padding: 13px 0 0 0; border-top: 1px solid #e0e0e0;}
 
-.login {
+#content .login {
   font-size: 14px;
   color: #8e8d8d;
   font-family: "Droid Sans";
@@ -109,14 +109,14 @@ p{ line-height:20px;}
   box-shadow: inset 2px 2px 4px #f1f1f1;
 }
 
-.user {background: url(user.png) no-repeat;}
-.user.error {background: url(user_error.png) no-repeat; border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
+#content .user {background: url(user.png) no-repeat;}
+#content .user.error {background: url(user_error.png) no-repeat; border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
 
 #content .password {background: url(password.png) no-repeat;}
 #content .password.error {background: url(password_error.png) no-repeat; border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
 
 /** Register Fields **/
-.register {
+#content .register {
   font-size: 14px;
   color: #8e8d8d;
   font-family: "Droid Sans";
@@ -132,19 +132,19 @@ p{ line-height:20px;}
   box-shadow: inset 2px 2px 4px #f1f1f1;
 }
 
-.register.error {border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
+#content .register.error {border:1px solid #f19d9d; background-color: #ffe0e0; box-shadow: inset 0px 0px 0px #fff ; color: #d95e5e;}
 
 /**  Custom Checkbox **/
-.checkbox {margin: 30px 0 15px 0;}
-.checkbox li {list-style: none; height: 15px;}
+#content .checkbox {margin: 30px 0 15px 0;}
+#content .checkbox li {list-style: none; height: 15px;}
 
-.checkbox li:not(#foo) > fieldset > div > span > input[type='checkbox'] {
+#content .checkbox li:not(#foo) > fieldset > div > span > input[type='checkbox'] {
     opacity: 0;
     float: left;
     width: 15px;
 }
 
-.checkbox li:not(#foo) > fieldset > div > span > input[type='checkbox'] + label {
+#content .checkbox li:not(#foo) > fieldset > div > span > input[type='checkbox'] + label {
     margin: 0;
     clear: none;
     padding: 0 0 0 22px;
@@ -153,7 +153,7 @@ p{ line-height:20px;}
   height: 15px; display: block;
 }
 
-.checkbox li:not(#foo) > fieldset > div > span > input[type='checkbox']:checked + label {
+#content .checkbox li:not(#foo) > fieldset > div > span > input[type='checkbox']:checked + label {
     background: url(check.png) no-repeat;
   height: 15px; display: block;
   background-position: 0 -15px;
