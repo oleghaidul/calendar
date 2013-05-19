@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+  omniauth: &omniauth
+    email_instruction: "Email you entered already exists in the system. If you already have an account Crolio, log in with your existing account and link this social network in profile settings. Or enter a different email address and create a new account."
+    enter_email: "Provider %{kind} did not specify email. Please, enter your email."
+    sign_in_with_existing_account: "Login with existing account"
+    this_email_exists: "%{email} already exists in system"
+    enter_another_email: "Enter another email"
+    email_to_complete_registration: "Enter email to complete registration"
+    social_profile_already_connected: "This social profile already connected"
+    social_profile_instruction: "This social profile already connected. First you have to disconnect it."

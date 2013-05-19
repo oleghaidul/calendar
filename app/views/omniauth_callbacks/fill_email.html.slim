@@ -1,0 +1,5 @@
+h2 = t('.email_to_complete_registration')
+
+= simple_form_for(resource, as: resource_name, url: verify_email_path) do |f|
+  = f.input :email
+  = f.submit t(:confirm)

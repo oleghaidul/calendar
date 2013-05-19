@@ -4,8 +4,8 @@ class SocialProfile < ActiveRecord::Base
 
   belongs_to :user
 
-  attr_accessible :provider, :token, :uid
-
+  attr_accessible :provider, :token, :uid, :is_token_valid
+  attr_accessor :is_token_valid
   enumerize :provider, in: AVAILABLE_SOCIAL_NETWORKS
 
   provider.values.each do |provider|

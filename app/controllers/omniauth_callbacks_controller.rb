@@ -26,6 +26,12 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def setup
+    request.env['omniauth.strategy'].options[:client_id] = @site.facebook_key
+    request.env['omniauth.strategy'].options[:client_secret] = @site.facebook_secret
+    render :text => "Setup complete.", :status => 404
+  end
+
   # verify filling email
   def verify_email
     unless params[:user]

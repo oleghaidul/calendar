@@ -1,0 +1,8 @@
+development:
+  facebook:
+    www.example.heroku.com:
+      consumer_key: 'xxxxxxxx'
+      consumer_secret: 'xxxxxxxx'
+    www.example.com:
+      consumer_key: 'xxxxxxx'
+      consumer_secret: 'xxxxxxx'

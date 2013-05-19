@@ -215,7 +215,19 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
-  SocialProfile::AVAILABLE_SOCIAL_NETWORKS.each { |network| config.omniauth network, *AppConfig.send(network) }
+  include ApplicationHelper
+
+  SETUP_PROC = lambda do |env|
+    req = Rack::Request.new(env)
+    # Note client_id & client_secret for Facebook
+    binding.pry
+    env['omniauth.strategy'].options[:client_id] = current_domain(req).app_id
+    env['omniauth.strategy'].options[:client_secret] = current_domain(req).app_secret
+  end
+
+  config.omniauth :facebook, setup: SETUP_PROC
+
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

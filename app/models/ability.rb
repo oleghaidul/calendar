@@ -16,6 +16,7 @@ class Ability
     can :manage, CalendarColor
     can :manage, PricePeriod
     can [:public_list, :show], UserCalendar
+    can :destroy, SocialProfile
   end
 
   def admin
@@ -28,6 +29,7 @@ class Ability
     can :manage, Page
     can :manage, PricePeriod
     can :manage, User
+    can :destroy, SocialProfile
   end
 
   def guest
