@@ -3,9 +3,9 @@ class Notifier < ActionMailer::Base
 
   def send_notification(email, calendar, period, boolean)
     if boolean
-      body = "Dear #{email}, start date of one of your calendars is coming up soon #{period.start_date.strftime('%d %b %Y')} at #{period.start_time}.\n"
+      body = "Dear #{email}, start date of one of your calendar: #{calendar.name} is coming up soon #{period.start_date.strftime('%d %b %Y')} on #{period.start_time}.\n"
     else
-      body = "Dear #{email}, end date of one of your calendars is coming up soon #{period.end_date.strftime('%d %b %Y')} at #{period.end_time}.\n"
+      body = "Dear #{email}, end date of one of your calendar: #{calendar.name} is coming up soon #{period.end_date.strftime('%d %b %Y')} on #{period.end_time}.\n"
     end
     body += "Period details:\n"
     body += "First name: #{period.first_name}\n" unless period.first_name.empty?
@@ -24,47 +24,53 @@ class Notifier < ActionMailer::Base
     body += "Postal code: #{period.post_code}\n" unless period.post_code.empty?
     body += "Info: #{period.info}\n" unless period.info.empty?
     body += "Go to calendar: "
-    body += "http://#{AppConfig.host}/calendars/#{calendar.id}/edit"
+    body += "http://#{AppConfig.host}/calendars/#{calendar.id}/edit\n\n"
+    body += "eCalendar Team\n\nCherish your time!"
     mail to: email, subject: "#{calendar.name} notification", body: body
   end
 
   def user_registration_mail(user)
-    body = "User #{user.email} has create account on eCalendar"
+    body = "User #{user.email} has created account on eCalendar"
     mail to: User.where(role: "admin").map(&:email), subject: "New user registration", body: body
   end
 
   def calendar_payment(calendar)
-    admin_body = "User #{calendar.user.email} has paid for #{calendar.name}"
+    admin_body = "User #{calendar.user.email} has paid for calendar: #{calendar.name}"
     mail to: User.where(role: "admin").map(&:email), subject: "Payment notification", body: admin_body
   end
 
   def calendar_create(calendar)
-    admin_body = "User #{calendar.user.email} has create a new calendar: #{calendar.name}"
+    admin_body = "User #{calendar.user.email} has created a new calendar: #{calendar.name}"
     mail to: User.where(role: "admin").map(&:email), subject: "Calendars notification", body: admin_body
   end
 
   def calendar_payment_user(calendar)
-    user_body = "Dear #{calendar.user.email}, thank you for payment. Calendar: #{calendar.name}"
+    user_body = "Dear #{calendar.user.email}, thank you for payment. Calendar: #{calendar.name}\n\n"
+    user_body += "eCalendar Team\n\nCherish your time!"
     mail to: calendar.user.email, subject: "Payment notification", body: user_body
   end
 
   def calendar_create_user(calendar)
-    user_body = "Dear #{calendar.user.email}, you have create a new calendar: #{calendar.name}"
+    user_body = "Dear #{calendar.user.email}, you have create a new calendar: #{calendar.name}\n\n"
+    user_body += "eCalendar Team\n\nCherish your time!"
     mail to: calendar.user.email, subject: "Calendars notification", body: user_body
   end
 
   def trial(calendar)
-    body = "Dear #{calendar.user.email}, trial period of your calendar: #{calendar.name} is end, please paid fo it to continue using"
+    body = "Dear #{calendar.user.email}, trial period of your calendar: #{calendar.name} is end, please paid fo it to continue using\n\n"
+    body += "Thank you for using eCalendar!\n\neCalendar Team\n\nCherish your time!"
     mail to: calendar.user.email, subject: "End of trial period", body: body
   end
 
   def trial_end(calendar)
-    body = "Dear #{calendar.user.email}, trial period of your calendar: #{calendar.name} is ending at #{calendar.trial_to.strftime('%d %b %Y')}"
+    body = "Dear #{calendar.user.email}, trial period of your calendar: #{calendar.name} is ending at #{calendar.trial_to.strftime('%d %b %Y')}\n\n"
+    body += "Thank you for using eCalendar!\n\neCalendar Team\n\nCherish your time!"
     mail to: calendar.user.email, subject: "End of trial period coming soon", body: body
   end
 
   def paid_end(calendar)
     body = "Dear #{calendar.user.email}, paid period of your calendar: #{calendar.name} is ending at #{calendar.paid_to.strftime('%d %b %Y')}, please paid for it to continue using"
+    body += "Thank you for using eCalendar!\n\neCalendar Team\n\nCherish your time!"
     mail to: calendar.user.email, subject: "End of paid period", body: body
   end
 
