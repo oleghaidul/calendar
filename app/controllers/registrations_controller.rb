@@ -18,7 +18,17 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
+      build_flash(resource)
       respond_with resource
     end
   end
+
+  private
+    def build_flash(resource)
+      if User.where(email: resource.email).any?
+        set_flash_message :error, :exist_in_database
+      else
+        set_flash_message :error, :password_not_match
+      end
+    end
 end
