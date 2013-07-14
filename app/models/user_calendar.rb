@@ -13,6 +13,8 @@ class UserCalendar < ActiveRecord::Base
 
   after_create :create_notification
 
+  default_scope order('created_at asc')
+
   def paypal_url(return_url, notify_url)
     return_hex = SecureRandom.hex(10)
     update_attribute(:return_hex, return_hex)
