@@ -26,6 +26,7 @@ RailsAdmin.config do |config|
           User.role.options
         end
       end
+      field :confirmed_at, :date
     end
     create do
       field :email, :string
